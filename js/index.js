@@ -1,3 +1,61 @@
+// home txt
+
+var TxtType = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtType.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+  this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+  this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 200 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+  delta = this.period;
+  this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+  this.isDeleting = false;
+  this.loopNum++;
+  delta = 500;
+  }
+
+  setTimeout(function() {
+  that.tick();
+  }, delta);
+};
+
+function startTypeEffect() {
+  var elements = document.getElementsByClassName('typewrite');
+  for (var i=0; i<elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-type');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtType(elements[i], JSON.parse(toRotate), period);
+      }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+  document.body.appendChild(css);
+}
 
 // Importing utility functions for preloading images, getting mouse position, and linear interpolation
 import { preloadImages, getMousePos, lerp } from './utils.js';
@@ -186,44 +244,45 @@ const stopRendering = () => {
 };
 
 const enterFullview = () => {
-  // Logic to animate the middle image to full view using gsap Flip
+  // Flip 상태 저장
   const flipstate = Flip.getState(middleRowItemInner);
   fullview.appendChild(middleRowItemInner);
   
-  // Get the CSS variable value for the translation
+  // CSS 변수 값 가져오기
   const transContent = getCSSVariableValue(content, '--trans-content');
 
-  // Create a GSAP timeline for the Flip animation
+  // GSAP 타임라인 생성
   const tl = gsap.timeline();
 
-  // Add the Flip animation to the timeline
+  // Flip 애니메이션
   tl.add(Flip.from(flipstate, {
     duration: 0.9,
     ease: 'power4',
     absolute: true,
     onComplete: stopRendering
   }))
-  // Fade out grid
+  // 그리드 페이드아웃
   .to(grid, {
     duration: 0.9,
     ease: 'power4',
     opacity: 0.01
   }, 0)
-  // Scale up the inner image
+  // 이미지 스케일업
   .to(middleRowItemInnerImage, {
     scale: 1.2,
     duration: 3,
     ease: 'sine'
   }, '<-=0.45')
-  // Move the content up
+  // 콘텐츠 위로 이동 + 타자효과 시작
   .to(content, {
-    y: transContent, // Use the CSS variable value
-    duration: 0.9,
-    ease: 'power4'
-  })
-  // Show the frame 
+    y: transContent,
+    duration: 0.6, // 
+    ease: 'power4',
+    onStart: () => startTypeEffect() // 
+  }, 0.2)
+  // 프레임 표시
   .add(() => frame.classList.remove('hidden'), '<')
-  // Scale and move 
+  // 이미지 밝기/움직임 조정
   .to(middleRowItemInnerImage, {
     scale: 1.1,
     startAt: {filter: 'brightness(100%)'},
@@ -232,10 +291,10 @@ const enterFullview = () => {
     duration: 0.9,
     ease: 'power4'
   }, '<');
-  
-  // Hide the button
+
+  // 버튼 숨기기
   enterButton.classList.add('hidden');
-  // Scrolling allowed
+  // 스크롤 허용
   body.classList.remove('noscroll');
 };
 
