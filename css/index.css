@@ -2,3 +2,52 @@
 
 @import "reset.css";
 @import "base.css";
+
+/****************** intro ******************/
+/* row1 */
+.intro .grid .row1 .row__item:nth-of-type(1) .row__item-img {background-image:url(../img/ansanebook.png);}
+.intro .grid .row1 .row__item:nth-of-type(2) .row__item-img {background-image:url(../img/mvoting.png);}
+.intro .grid .row1 .row__item:nth-of-type(3) .row__item-img {background-image:url(../img/yeyak.png);}
+.intro .grid .row1 .row__item:nth-of-type(4) .row__item-img {background-image:url(../img/arte.png);}
+.intro .grid .row1 .row__item:nth-of-type(5) .row__item-img {background-image:url(../img/lgchem.png);}
+.intro .grid .row1 .row__item:nth-of-type(6) .row__item-img {background-image:url(../img/bam.png);}
+.intro .grid .row1 .row__item:nth-of-type(7) .row__item-img {background-image:url(../img/nuxe.png);}
+
+/* row2 */
+.intro .grid .row2 .row__item:nth-of-type(1) .row__item-img {background-image:url(../img/lotte.png);}
+.intro .grid .row2 .row__item:nth-of-type(2) .row__item-img {background-image:url(../img/lush.png);}
+.intro .grid .row2 .row__item:nth-of-type(3) .row__item-img {background-image:url(../img/cocacola.png);}
+.intro .grid .row2 .row__item:nth-of-type(4) .row__item-img {background-image:url(../img/roundaround.png);}
+.intro .grid .row2 .row__item:nth-of-type(5) .row__item-img {background-image:url(../img/aromatica.png);}
+.intro .grid .row2 .row__item:nth-of-type(6) .row__item-img {background-image:url(../img/krispy.png);}
+.intro .grid .row2 .row__item:nth-of-type(7) .row__item-img {background-image:url(../img/acebed.png);}
+
+/* row3 */
+.intro .grid .row3 .row__item:nth-of-type(1) .row__item-img {background-image:url(../img/keci.png);}
+.intro .grid .row3 .row__item:nth-of-type(2) .row__item-img {background-image:url(../img/mofa.png);}
+.intro .grid .row3 .row__item:nth-of-type(3) .row__item-img {background-image:url(../img/asf.png);}
+.intro .grid .row3 .row__item:nth-of-type(4) .row__item-img {background-image:url(../img/111.png);}
+.intro .grid .row3 .row__item:nth-of-type(5) .row__item-img {background-image:url(../img/cj.png);}
+.intro .grid .row3 .row__item:nth-of-type(6) .row__item-img {background-image:url(../img/cj.png);}
+.intro .grid .row3 .row__item:nth-of-type(7) .row__item-img {background-image:url(../img/cj.png);}
+
+/* row4 */
+.intro .grid .row4 .row__item:nth-of-type(1) .row__item-img {background-image:url(../img/cj.png);}
+.intro .grid .row4 .row__item:nth-of-type(2) .row__item-img {background-image:url(../img/tamburins.png);}
+.intro .grid .row4 .row__item:nth-of-type(3) .row__item-img {background-image:url(../img/dior.png);}
+.intro .grid .row4 .row__item:nth-of-type(4) .row__item-img {background-image:url(../img/benefit.png);}
+.intro .grid .row4 .row__item:nth-of-type(5) .row__item-img {background-image:url(../img/tta.png);}
+.intro .grid .row4 .row__item:nth-of-type(6) .row__item-img {background-image:url(../img/ansanebook.png);}
+.intro .grid .row4 .row__item:nth-of-type(7) .row__item-img {background-image:url(../img/mvoting.png);}
+
+/* row5*/
+.intro .grid .row5 .row__item:nth-of-type(1) .row__item-img {background-image:url(../img/yeyak.png);}
+.intro .grid .row5 .row__item:nth-of-type(2) .row__item-img {background-image:url(../img/arte.png);}
+.intro .grid .row5 .row__item:nth-of-type(3) .row__item-img {background-image:url(../img/lgchem.png);}
+.intro .grid .row5 .row__item:nth-of-type(4) .row__item-img {background-image:url(../img/bam.png);}
+.intro .grid .row5 .row__item:nth-of-type(5) .row__item-img {background-image:url(../img/nuxe.png);}
+.intro .grid .row5 .row__item:nth-of-type(6) .row__item-img {background-image:url(../img/lotte.png);}
+.intro .grid .row5 .row__item:nth-of-type(7) .row__item-img {background-image:url(../img/lush.png);}
+
+.intro .grid .row .row__item .row__item-img {position: relative;}
+.intro .grid .row .row__item .row__item-img  span {width: 100%; text-align: center; font-size: 25px; position: absolute; bottom: 25%; left: 50%; transform: translateX(-50%) ;font-family: 'jalnan';}
