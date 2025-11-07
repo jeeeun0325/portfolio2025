@@ -301,7 +301,7 @@ a:focus-visible {
 	top: 0;
 	left: 0;
 	z-index: 0;
-	background: url(../img/noise.png), radial-gradient(at top, #d3b9e9 0%, #ddd 100%);
+	background: url(../img/noise.png), radial-gradient(at top, #bbb9b8 0%, #ddd 100%);
   background-size: 250px, 100%;
 }
 

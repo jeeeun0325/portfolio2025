@@ -2,6 +2,7 @@
 
 @import "reset.css";
 @import "base.css";
+@import "font.css";
 
 /****************** intro ******************/
 /* row1 */
@@ -51,3 +52,7 @@
 
 .intro .grid .row .row__item .row__item-img {position: relative;}
 .intro .grid .row .row__item .row__item-img  span {width: 100%; text-align: center; font-size: 25px; position: absolute; bottom: 25%; left: 50%; transform: translateX(-50%) ;font-family: 'jalnan';}
+
+body.noscroll  .fullview .section {display: none;}
+video {position: absolute; width: 100%; height: 70vh; left: 0; top: 0; background-size: 100% 100%; background-color: black; /* in case the video doesn't fit the whole page*/ background-position: center center; background-size: contain; object-fit: cover; z-index: 1;}
+#myVideo, #myVideo2 {opacity: .7;}

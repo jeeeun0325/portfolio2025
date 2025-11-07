@@ -1,3 +1,4 @@
+
 // Importing utility functions for preloading images, getting mouse position, and linear interpolation
 import { preloadImages, getMousePos, lerp } from './utils.js';
 
