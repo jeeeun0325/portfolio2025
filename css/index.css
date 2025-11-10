@@ -58,3 +58,5 @@ video {position: absolute; width: 100%; height: 100%; left: 0; top: 0; backgroun
 #myVideo, #myVideo2 {opacity: .7;}
 .txtBox {position: absolute; top: 30%; left: 50%; transform: translateX(-50%); text-align: center; width: 70%;}
 .txtBox a {font-size: 75px; font-family: 'pretendard-R'; -webkit-text-fill-color: transparent; -webkit-text-stroke: 1px; color: #ffffff; ; z-index: 1;}
+
+.content  .work {font-size: 20px;}
