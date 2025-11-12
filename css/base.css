@@ -60,19 +60,6 @@ body {
 	}
 }
 
-a {
-	text-decoration: none;
-	color: var(--color-link);
-	outline: none;
-	cursor: pointer;
-}
-
-a:hover {
-	text-decoration: underline;
-	color: var(--color-link-hover);
-	outline: none;
-}
-
 /* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
 a:focus {
 	/* Provide a fallback style for browsers
