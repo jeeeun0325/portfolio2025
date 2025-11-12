@@ -321,3 +321,41 @@ window.addEventListener('touchmove', (ev) => {
   const touch = ev.touches[0];
   updateMousePosition(touch);
 });
+
+$(document).ready(function(){
+  const $thum = $('.thum');
+  const $thumImg = $thum.find('img');
+
+  // 이미지가 들어갈 보조 레이어를 하나 더 만들어줘 (겹쳐서 애니메이션용)
+  $thum.append('<img class="next" style="position:absolute; top:100%; left:0; width:100%; border-radius:30px;">');
+
+$('.work li').on({
+  mouseenter: function() {
+    let thum = $(this).attr('data-thum');
+    let $current = $('.thum img');
+
+    // 새 이미지 엘리베이터처럼 위에서 등장
+    let $newImg = $('<img>').attr('src', thum).css({
+      position: 'absolute',
+      top: '100%',
+      left: 0,
+      width: '100%',
+      borderRadius: '30px'
+    });
+
+    $('.thum').append($newImg).stop().fadeIn(100);
+
+    $newImg.animate({ top: '0%' }, 300); // 위로 올라옴
+    $current.animate({ top: '-100%' }, 300, function() {
+      $(this).remove(); // 이전 이미지 제거
+    });
+  },
+  mouseleave: function() {
+    $('.thum').stop().fadeOut(200);
+  }
+});
+
+  $('.work li').on('mouseleave', function(){
+    $thum.stop(true,true).fadeOut(200);
+  });
+});
