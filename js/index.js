@@ -324,14 +324,27 @@ window.addEventListener('touchmove', (ev) => {
 
 $(document).ready(function(){
   const $thum = $('.thum');
-  const transitionMs = 800; // 엘리베이터 애니메이션 시간 (ms) - 필요하면 조절
+  const transitionMs = 600;
+  let mouseX = 0, mouseY = 0;
 
-  // 마우스가 li에 들어갔을 때
+  // ✨ 마우스 움직임에 따라 썸네일이 부드럽게 따라오게
+  $(document).on('mousemove', function(e){
+    mouseX = e.pageX + 20; // 마우스 오른쪽에 조금 띄워서
+    mouseY = e.pageY - 20;
+    gsap.to($thum, { 
+  x: e.pageX + 20, 
+  y: e.pageY - 1120, 
+  duration: 0.3, 
+  ease: "power2.out" 
+});
+  });
+
+  // work
   $('.work li').on('mouseenter', function(){
     const src = $(this).attr('data-thum');
     const $current = $thum.find('img').last();
 
-    // 1) 처음 (아무 이미지도 없는 상태) -> 그냥 fadeIn으로 보여주기
+    // 처음 hover
     if ($current.length === 0) {
       const $firstImg = $('<img>')
         .attr('src', src)
@@ -340,46 +353,38 @@ $(document).ready(function(){
           top: '0%',
           left: 0,
           width: '100%',
-          // borderRadius: '30px',
-          transition: `top ${transitionMs}ms ease-in-out`
+          borderRadius: '20px',
+          transform: 'scale(1)',
         });
       $thum.append($firstImg).stop(true,true).fadeIn(200);
       $thum.data('currentSrc', src);
       return;
     }
 
-    // 2) 이미 같은 이미지가 떠있으면 아무 동작 안 함
-    // if ($current.attr('src') === src) return;
+    // 다른 이미지면 교체
+    if ($current.attr('src') === src) return;
 
-    // 3) 다른 이미지로 변경 -> 엘리베이터처럼 교체
     const $newImg = $('<img>')
       .attr('src', src)
       .css({
         position: 'absolute',
-        top: '100%',    // 아래에서 올라오도록 시작
+        top: '100%',
         left: 0,
         width: '100%',
-        // borderRadius: '30px',
-        transition: `top ${transitionMs}ms ease-in-out`
+        borderRadius: '20px',
+        transform: 'scale(1)',
       });
 
-    // 새 이미지 추가하고 보이게 함
-    $thum.append($newImg).stop(true,true).fadeIn(200);
+    $thum.append($newImg).stop(true,true).fadeIn(100);
 
-    // CSS transition으로 자연스럽게 이동시키기 위해 약간의 지연 후 top 변경
-    setTimeout(() => {
-      $newImg.css('top', '0%');     // 새 이미지는 위로 올라옴
-      $current.css('top', '-100%'); // 기존 이미지는 위로 빠짐
-    }, 20);
+    $newImg.animate({ top: '0%' }, transitionMs, 'swing');
+    $current.delay(50).animate({ top: '-100%' }, transitionMs, 'swing', function(){
+      $(this).remove();
+    });
 
-    // 이전 이미지 제거 (transition 끝난 뒤)
-    setTimeout(() => {
-      $current.remove();
-      $thum.data('currentSrc', src);
-    }, transitionMs + 50);
+    $thum.data('currentSrc', src);
   });
 
-  // .work 영역에서 완전히 나가면 썸네일 숨기고 이미지 정리
   $('.work').on('mouseleave', function(){
     $thum.stop(true,true).fadeOut(300, function(){
       $(this).find('img').remove();
@@ -387,3 +392,20 @@ $(document).ready(function(){
     });
   });
 });
+
+$(window).scroll(function () {
+  let scrTop = $(window).scrollTop()
+  let winH = $(window).height()
+  let winW = $(window).outerWidth()
+  let secTop = $('#work').offset().top
+ console.log(winW, winH , scrTop, secTop)
+
+  if (scrTop >= secTop - 100) {
+
+    $('.content__header').addClass('on')
+  }else{
+    $('.content__header').removeClass('on')
+  }
+
+
+})
