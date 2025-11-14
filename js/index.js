@@ -337,7 +337,7 @@ $(document).ready(function(){
     });
   });
 
-  $('.work li').on('mouseenter', function(){
+  $('.project li').on('mouseenter', function(){
     const src = $(this).data('thum');
     const $current = $thum.find('img').last();
 
@@ -360,7 +360,7 @@ $(document).ready(function(){
     });
   });
 
-  $('.work').on('mouseleave', function(){
+  $('.project').on('mouseleave', function(){
     $thum.fadeOut(300, function(){
       $(this).empty();
     });
