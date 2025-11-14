@@ -329,10 +329,8 @@ $(document).ready(function(){
 
   // 마우스 따라다니기 (clientY + scrollY)
   $(document).on('mousemove', function(e){
-     let scrTop = $(window).scrollTop()
     const mouseX = e.clientX + 20;
-    const mouseY = e.clientY + window.scrollY + 20;
-   console.log(scrTop, mouseY)
+    const mouseY = e.clientY + 20;
     $thum.css({
       top: mouseY + 'px',
       left: mouseX + 'px'
