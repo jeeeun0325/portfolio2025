@@ -322,83 +322,60 @@ window.addEventListener('touchmove', (ev) => {
   updateMousePosition(touch);
 });
 
+
+//work
 $(document).ready(function(){
   const $thum = $('.thum');
-  const transitionMs = 600;
-  let mouseX = 0, mouseY = 0;
 
-  // ✨ 마우스 움직임에 따라 썸네일이 부드럽게 따라오게
+  // 마우스 따라다니기 (clientY + scrollY)
   $(document).on('mousemove', function(e){
-    mouseX = e.pageX + 20; // 마우스 오른쪽에 조금 띄워서
-    mouseY = e.pageY - 20;
-    gsap.to($thum, { 
-  x: e.pageX + 20, 
-  y: e.pageY - 1120, 
-  duration: 0.3, 
-  ease: "power2.out" 
-});
+     let scrTop = $(window).scrollTop()
+    const mouseX = e.clientX + 20;
+    const mouseY = e.clientY + window.scrollY + 20;
+   console.log(scrTop, mouseY)
+    $thum.css({
+      top: mouseY + 'px',
+      left: mouseX + 'px'
+    });
   });
 
-  // work
   $('.work li').on('mouseenter', function(){
-    const src = $(this).attr('data-thum');
+    const src = $(this).data('thum');
     const $current = $thum.find('img').last();
 
-    // 처음 hover
     if ($current.length === 0) {
-      const $firstImg = $('<img>')
-        .attr('src', src)
-        .css({
-          position: 'absolute',
-          top: '0%',
-          left: 0,
-          width: '100%',
-          borderRadius: '20px',
-          transform: 'scale(1)',
-        });
-      $thum.append($firstImg).stop(true,true).fadeIn(200);
-      $thum.data('currentSrc', src);
+      const $img = $('<img>').attr('src', src);
+      $thum.html($img).fadeIn(150);
       return;
     }
 
-    // 다른 이미지면 교체
-    if ($current.attr('src') === src) return;
-
-    const $newImg = $('<img>')
-      .attr('src', src)
-      .css({
-        position: 'absolute',
-        top: '100%',
-        left: 0,
-        width: '100%',
-        borderRadius: '20px',
-        transform: 'scale(1)',
-      });
-
-    $thum.append($newImg).stop(true,true).fadeIn(100);
-
-    $newImg.animate({ top: '0%' }, transitionMs, 'swing');
-    $current.delay(50).animate({ top: '-100%' }, transitionMs, 'swing', function(){
-      $(this).remove();
+    const $newImg = $('<img>').attr('src', src).css({
+      position: 'absolute',
+      top: '100%',
+      left: 0
     });
 
-    $thum.data('currentSrc', src);
+    $thum.append($newImg);
+    $newImg.animate({ top: '0%' }, 800);
+    $current.animate({ top: '-100%' }, 800, function(){
+      $(this).remove();
+    });
   });
 
   $('.work').on('mouseleave', function(){
-    $thum.stop(true,true).fadeOut(300, function(){
-      $(this).find('img').remove();
-      $(this).removeData('currentSrc');
+    $thum.fadeOut(300, function(){
+      $(this).empty();
     });
   });
 });
 
+// scroll
 $(window).scroll(function () {
   let scrTop = $(window).scrollTop()
   let winH = $(window).height()
   let winW = $(window).outerWidth()
   let secTop = $('#work').offset().top
- console.log(winW, winH , scrTop, secTop)
+//  console.log(winW, winH , scrTop, secTop)
 
   if (scrTop >= secTop - 100) {
 
