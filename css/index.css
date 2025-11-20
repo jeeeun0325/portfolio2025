@@ -218,9 +218,12 @@ video {
   transition: 0.2s;
 }
 .content .workwrap .work .worklist li a.on {
-  opacity: 0;
+  opacity: 0.5;
   pointer-events: none;
   cursor: default;
+}
+.content .workwrap .work .worklist li a.on img {
+  transform: unset;
 }
 .content .workwrap .work .worklist li a img {
   width: 100%;
@@ -244,7 +247,7 @@ video {
   height: 100vh;
   padding: 80px 40px 0;
   position: sticky;
-  top: 0;
+  top: 30vh;
 }
 .content .workwrap .work .worklist2.on .close {
   display: block;
@@ -260,13 +263,38 @@ video {
   margin: 30px 0;
   transition: 0.2s;
 }
-.content .workwrap .work .worklist2 .workView span.title {
+.content .workwrap .work .worklist2 .workView span {
   margin-left: 20px;
-  font-size: 25px;
+  font-size: 20px;
   font-family: "GmarketSans-M";
+  line-height: 1.2;
+  display: block;
+}
+.content .workwrap .work .worklist2 .workView span.title {
+  font-family: "GmarketSans-B";
+  font-size: 25px;
+}
+.content .workwrap .work .worklist2 .workView a {
+  display: block;
 }
 .content .workwrap .work .worklist2 .workView a:hover img {
   transform: scale(1.05);
+}
+.content .workwrap .work .worklist2 .workView.mini {
+  max-width: 370px;
+}
+.content .workwrap .work .worklist2 .workView.mini .viewBox {
+  padding-bottom: 20px;
+}
+.content .workwrap .work .worklist2 .workView.mini .viewBox:nth-of-type(1) {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+.content .workwrap .work .worklist2 .workView.mini span {
+  font-size: 18px;
+}
+.content .workwrap .work .worklist2 .workView.mini span.title {
+  font-size: 23px;
 }
 .content .workwrap .work .close {
   width: 37.6923076923px;

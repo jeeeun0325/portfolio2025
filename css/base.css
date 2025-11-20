@@ -4,7 +4,7 @@
 *::after,
 *::before {box-sizing: border-box;}
 
-:root {font-size: 12px; --color-text: #292828; --color-bg: #ddd; --color-link: #000; --color-link-hover: #000; --page-padding: 1rem; --angle: -15deg; /* --trans-content: -30vh; */}
+:root {font-size: 12px; --color-text: #292828; --color-bg: #ddd; --color-link: #000; --color-link-hover: #000; --page-padding: 1rem; --angle: -15deg; --trans-content: -30vh;}
 
 body {
 	margin: 0;
@@ -282,7 +282,7 @@ a:focus-visible {
 	content: '';
 	position: absolute;
 	border-radius: 10px 10px 0 0;
-	height: 100%;
+	height: calc(100% + (-1) * var(--trans-content));
 	width: 100%;
 	top: 0;
 	left: 0;
@@ -306,7 +306,7 @@ a:focus-visible {
 	font-size: 2rem;
 	font-family: new-science-extended, sans-serif;
 	font-weight: 400;
-	/* margin: 6rem 0 10vh; */
+	margin: 6rem 0 10vh;
 	line-height: 0.9;
 }
 

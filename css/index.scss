@@ -248,102 +248,147 @@ video {
   }
 }
 
-.content .workwrap .work {
-  display: flex;
-  position: relative;
-
-  .worklist {
-    width: 100%;
-    padding: 30px;
+.content {
+  .workwrap .work {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
+    position: relative;
 
-    li {
-      width: 23%;
-      min-width: 370px;
+    .worklist {
+      width: 100%;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
 
-      a {
-        display: block;
-        opacity: 1;
-        transition: .2s;
+      li {
+        width: 23%;
+        min-width: 370px;
 
-        &.on {
-          opacity: 0;
-          pointer-events: none;
-          cursor: default;
+        a {
+          display: block;
+          opacity: 1;
+          transition: .2s;
+
+          &.on {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+            img {
+              transform: unset;
+            }
+          }
+
+          img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+            transition: .2s;
+          }
         }
+
+        &:hover {
+          img {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+
+    .worklist2 {
+      width: 0;
+      height: 0;
+      overflow: hidden;
+
+      ul {
+        width: 100%;
+        height: 100%;
+      }
+
+      &.on {
+        height: 100vh;
+        padding: 80px 40px 0;
+        position: sticky;
+        top: 30vh;
+
+        .close {
+          display: block;
+        }
+      }
+
+      .workView {
+        max-width: 500px;
+        margin: auto;
 
         img {
           width: 100%;
           border-radius: 20px;
           box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+          margin: 30px 0;
           transition: .2s;
         }
-      }
-      &:hover{
-        img {
-          transform: scale(1.05);
+
+        span {
+          margin-left: 20px;
+          font-size: 20px;
+          font-family: 'GmarketSans-M';
+          line-height: 1.2;
+          display: block;
+
+          &.title {
+            font-family: 'GmarketSans-B';
+            font-size: 25px;
+          }
+        }
+
+        a {
+          display: block;
+
+          &:hover {
+            img {
+              transform: scale(1.05);
+            }
+          }
+        }
+
+        &.mini {
+          max-width: 370px;
+
+          .viewBox {
+            padding-bottom: 20px;
+            &:nth-of-type(1) {
+              border-bottom: 1px solid #eee;
+              margin-bottom: 20px;
+            }
+          }
+
+          span {
+            font-size: 18px;
+
+            &.title {
+              font-size: 23px;
+            }
+          }
         }
       }
     }
-  }
 
-  .worklist2 {
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    ul{
-      width: 100%;
-      height: 100%;
-    }
-    &.on {
-      height: 100vh;
-      padding: 80px 40px 0;
-      position: sticky;
-      top: 0;
-      .close {
-        display: block;
-      }
-    }
+    .close {
+      width: calc(49px / 1.3);
+      height: calc(48px / 1.3);
+      background: no-repeat center / contain;
+      background-image: url(../img/close.png);
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: none;
+      border: none;
 
-    .workView {
-      max-width: 500px;
-      margin: auto;
-      img {
-        width: 100%;
-        border-radius: 20px;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-        margin: 30px 0;
-        transition: .2s;
+      &:hover {
+        background-image: url(../img/close_black.png);
       }
-      span.title {
-        margin-left: 20px;
-        font-size: 25px;
-        font-family: 'GmarketSans-M';
-      }
-      a:hover{
-        img {
-          transform: scale(1.05);
-        }
-      }
-    }
-  }
-  .close {
-    width: calc(49px / 1.3);
-    height: calc(48px / 1.3);
-    background: no-repeat center / contain;
-    background-image: url(../img/close.png);
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: none;
-    border: none;
-    &:hover{
-      background-image: url(../img/close_black.png);
     }
   }
 }

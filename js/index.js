@@ -249,7 +249,7 @@ const enterFullview = () => {
   fullview.appendChild(middleRowItemInner);
 
   // CSS 변수 값 가져오기
-  // const transContent = getCSSVariableValue(content, '--trans-content');
+  const transContent = getCSSVariableValue(content, '--trans-content');
 
   // GSAP 타임라인 생성
   const tl = gsap.timeline();
@@ -275,7 +275,7 @@ const enterFullview = () => {
     }, '<-=0.45')
     // 콘텐츠 위로 이동 + 타자효과 시작
     .to(content, {
-      // y: transContent,
+      y: transContent,
       duration: 0.6, // 
       ease: 'power4',
       onStart: () => startTypeEffect() // 
