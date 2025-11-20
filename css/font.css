@@ -183,3 +183,22 @@
     url('../fonts/Jalnan.ttf') format('truetype'),
     url('../fonts/Jalnan.svg') format('svg');
 }
+
+@font-face {
+  font-family: 'GmarketSans-L';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/GmarketSansTTFLight.ttf');
+}
+@font-face {
+  font-family: 'GmarketSans-M';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/GmarketSansTTFMedium.ttf');
+}
+@font-face {
+  font-family: 'GmarketSans-B';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/GmarketSansTTFBold.ttf');
+}

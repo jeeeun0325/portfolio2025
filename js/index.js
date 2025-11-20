@@ -1,6 +1,6 @@
 // home txt
 
-var TxtType = function(el, toRotate, period) {
+var TxtType = function (el, toRotate, period) {
   this.toRotate = toRotate;
   this.el = el;
   this.loopNum = 0;
@@ -10,17 +10,17 @@ var TxtType = function(el, toRotate, period) {
   this.isDeleting = false;
 };
 
-TxtType.prototype.tick = function() {
+TxtType.prototype.tick = function () {
   var i = this.loopNum % this.toRotate.length;
   var fullTxt = this.toRotate[i];
 
   if (this.isDeleting) {
-  this.txt = fullTxt.substring(0, this.txt.length - 1);
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
   } else {
-  this.txt = fullTxt.substring(0, this.txt.length + 1);
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
   }
 
-  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+  this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
 
   var that = this;
   var delta = 200 - Math.random() * 100;
@@ -28,27 +28,27 @@ TxtType.prototype.tick = function() {
   if (this.isDeleting) { delta /= 2; }
 
   if (!this.isDeleting && this.txt === fullTxt) {
-  delta = this.period;
-  this.isDeleting = true;
+    delta = this.period;
+    this.isDeleting = true;
   } else if (this.isDeleting && this.txt === '') {
-  this.isDeleting = false;
-  this.loopNum++;
-  delta = 500;
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
   }
 
-  setTimeout(function() {
-  that.tick();
+  setTimeout(function () {
+    that.tick();
   }, delta);
 };
 
 function startTypeEffect() {
   var elements = document.getElementsByClassName('typewrite');
-  for (var i=0; i<elements.length; i++) {
-      var toRotate = elements[i].getAttribute('data-type');
-      var period = elements[i].getAttribute('data-period');
-      if (toRotate) {
-        new TxtType(elements[i], JSON.parse(toRotate), period);
-      }
+  for (var i = 0; i < elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-type');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtType(elements[i], JSON.parse(toRotate), period);
+    }
   }
   // INJECT CSS
   var css = document.createElement("style");
@@ -120,7 +120,7 @@ let renderedStyles = Array.from({ length: numRows }, (v, index) => {
   // Inverted amt for scale: outermost rows are faster
   const scaleAmt = Math.min(baseAmt + distanceFromMiddle * 0.03, maxAmt);
   let style = { amt, scaleAmt };
-  
+
   if (config.translateX) {
     style.translateX = { previous: 0, current: 0 };
   }
@@ -247,9 +247,9 @@ const enterFullview = () => {
   // Flip 상태 저장
   const flipstate = Flip.getState(middleRowItemInner);
   fullview.appendChild(middleRowItemInner);
-  
+
   // CSS 변수 값 가져오기
-  const transContent = getCSSVariableValue(content, '--trans-content');
+  // const transContent = getCSSVariableValue(content, '--trans-content');
 
   // GSAP 타임라인 생성
   const tl = gsap.timeline();
@@ -261,36 +261,36 @@ const enterFullview = () => {
     absolute: true,
     onComplete: stopRendering
   }))
-  // 그리드 페이드아웃
-  .to(grid, {
-    duration: 0.9,
-    ease: 'power4',
-    opacity: 0.01
-  }, 0)
-  // 이미지 스케일업
-  .to(middleRowItemInnerImage, {
-    scale: 1.2,
-    duration: 3,
-    ease: 'sine'
-  }, '<-=0.45')
-  // 콘텐츠 위로 이동 + 타자효과 시작
-  .to(content, {
-    y: transContent,
-    duration: 0.6, // 
-    ease: 'power4',
-    onStart: () => startTypeEffect() // 
-  }, 0.2)
-  // 프레임 표시
-  .add(() => frame.classList.remove('hidden'), '<')
-  // 이미지 밝기/움직임 조정
-  .to(middleRowItemInnerImage, {
-    scale: 1.1,
-    startAt: {filter: 'brightness(100%)'},
-    filter: 'brightness(50%)',
-    y: '-5vh',
-    duration: 0.9,
-    ease: 'power4'
-  }, '<');
+    // 그리드 페이드아웃
+    .to(grid, {
+      duration: 0.9,
+      ease: 'power4',
+      opacity: 0.01
+    }, 0)
+    // 이미지 스케일업
+    .to(middleRowItemInnerImage, {
+      scale: 1.2,
+      duration: 3,
+      ease: 'sine'
+    }, '<-=0.45')
+    // 콘텐츠 위로 이동 + 타자효과 시작
+    .to(content, {
+      // y: transContent,
+      duration: 0.6, // 
+      ease: 'power4',
+      onStart: () => startTypeEffect() // 
+    }, 0.2)
+    // 프레임 표시
+    .add(() => frame.classList.remove('hidden'), '<')
+    // 이미지 밝기/움직임 조정
+    .to(middleRowItemInnerImage, {
+      scale: 1.1,
+      startAt: { filter: 'brightness(100%)' },
+      filter: 'brightness(50%)',
+      y: '-5vh',
+      duration: 0.9,
+      ease: 'power4'
+    }, '<');
 
   // 버튼 숨기기
   enterButton.classList.add('hidden');
@@ -322,13 +322,46 @@ window.addEventListener('touchmove', (ev) => {
   updateMousePosition(touch);
 });
 
-
 //work
-$(document).ready(function(){
+$('.worklist li a').on('click', function (e) {
+  e.preventDefault()
+  let href = $(this).attr('href')
+  let sw = $(this).hasClass('on')
+
+  if (sw) {
+    $('.worklist2').stop().animate({ 'width': 0 })
+    $('.worklist').stop().animate({ 'width': '100%' })
+    $('.worklist li a').removeClass('on')
+    $('.worklist2').removeClass('on')
+    return false
+  } else {
+    $('.worklist li a').removeClass('on')
+    $(this).addClass('on')
+    $('.worklist2').addClass('on')
+    $('.worklist2').stop().animate({ 'width': '40%' })
+  }
+
+  $('.worklist').stop().animate({ 'width': '60%' })
+  $('.workView').hide()
+  $(href).show()
+})
+
+$('.close').click(function(e){
+    e.preventDefault()
+    $('.worklist2').stop().animate({'width': 0})
+    $('.worklist').stop().animate({ 'width': '100%' })
+    $('.worklist2').removeClass('on')
+    $('.worklist li a').removeClass('on')
+ })
+
+
+
+//project
+$(document).ready(function () {
   const $thum = $('.thum');
 
   // 마우스 따라다니기 (clientY + scrollY)
-  $(document).on('mousemove', function(e){
+  $(document).on('mousemove', function (e) {
     const mouseX = e.clientX + 20;
     const mouseY = e.clientY + 20;
     $thum.css({
@@ -337,7 +370,7 @@ $(document).ready(function(){
     });
   });
 
-  $('.project li').on('mouseenter', function(){
+  $('.project li').on('mouseenter', function () {
     const src = $(this).data('thum');
     const $current = $thum.find('img').last();
 
@@ -355,13 +388,13 @@ $(document).ready(function(){
 
     $thum.append($newImg);
     $newImg.animate({ top: '0%' }, 800);
-    $current.animate({ top: '-100%' }, 800, function(){
+    $current.animate({ top: '-100%' }, 800, function () {
       $(this).remove();
     });
   });
 
-  $('.project').on('mouseleave', function(){
-    $thum.fadeOut(300, function(){
+  $('.project').on('mouseleave', function () {
+    $thum.fadeOut(300, function () {
       $(this).empty();
     });
   });
@@ -373,12 +406,12 @@ $(window).scroll(function () {
   let winH = $(window).height()
   let winW = $(window).outerWidth()
   let secTop = $('#work').offset().top
-//  console.log(winW, winH , scrTop, secTop)
+  //  console.log(winW, winH , scrTop, secTop)
 
   if (scrTop >= secTop - 100) {
 
     $('.content__header').addClass('on')
-  }else{
+  } else {
     $('.content__header').removeClass('on')
   }
 
