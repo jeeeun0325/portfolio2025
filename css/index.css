@@ -195,9 +195,16 @@ video {
     transform: translateY(0);
   }
 }
+.content .workwrap {
+  margin-bottom: 180px;
+}
 .content .workwrap .work {
   display: flex;
   position: relative;
+  /*
+  ** 1. 애니메이션 초기 상태 설정 (JS가 제어할 요소) **
+     - workView 안에 있는 span.title, a, viewBox는 기본적으로 숨겨진 상태에서 시작
+  */
 }
 .content .workwrap .work .worklist {
   width: 100%;
@@ -208,30 +215,35 @@ video {
   flex-wrap: wrap;
   gap: 30px;
 }
-.content .workwrap .work .worklist li {
+.content .workwrap .work .worklist li.item {
   width: 23%;
   min-width: 370px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.6s ease;
 }
-.content .workwrap .work .worklist li a {
+.content .workwrap .work .worklist li.item.show {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.content .workwrap .work .worklist li.item a {
   display: block;
   opacity: 1;
   transition: 0.2s;
 }
-.content .workwrap .work .worklist li a.on {
-  opacity: 0.5;
-  pointer-events: none;
-  cursor: default;
+.content .workwrap .work .worklist li.item a.on {
+  transform: scale(1.07);
 }
-.content .workwrap .work .worklist li a.on img {
+.content .workwrap .work .worklist li.item a.on img {
   transform: unset;
 }
-.content .workwrap .work .worklist li a img {
+.content .workwrap .work .worklist li.item a img {
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
   transition: 0.2s;
 }
-.content .workwrap .work .worklist li:hover img {
+.content .workwrap .work .worklist li.item:hover img {
   transform: scale(1.05);
 }
 .content .workwrap .work .worklist2 {
@@ -248,6 +260,7 @@ video {
   padding: 80px 40px 0;
   position: sticky;
   top: 30vh;
+  border-left: 2px solid #ddd;
 }
 .content .workwrap .work .worklist2.on .close {
   display: block;
@@ -295,6 +308,13 @@ video {
 }
 .content .workwrap .work .worklist2 .workView.mini span.title {
   font-size: 23px;
+}
+.content .workwrap .work .workView span.title,
+.content .workwrap .work .workView a,
+.content .workwrap .work .workView .viewBox {
+  /* 초기 상태는 JS의 fromTo로 설정하므로, 여기서 transition을 막아 충돌 방지 */
+  transition: none !important;
+  /* GSAP 애니메이션 충돌 방지를 위해 JS에서 opacity와 transform을 제어하도록 CSS 초기 상태는 제거하거나 간소화합니다. */
 }
 .content .workwrap .work .close {
   width: 37.6923076923px;

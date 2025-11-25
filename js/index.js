@@ -322,39 +322,117 @@ window.addEventListener('touchmove', (ev) => {
   updateMousePosition(touch);
 });
 
-//work
+// work
 $('.worklist li a').on('click', function (e) {
-  e.preventDefault()
-  let href = $(this).attr('href')
-  let sw = $(this).hasClass('on')
+    e.preventDefault();
+    let href = $(this).attr('href'); 
+    let sw = $(this).hasClass('on');
+    
+    const $workView = $(href);
+    const isMini = $workView.hasClass('mini');
 
-  if (sw) {
-    $('.worklist2').stop().animate({ 'width': 0 })
-    $('.worklist').stop().animate({ 'width': '100%' })
-    $('.worklist li a').removeClass('on')
-    $('.worklist2').removeClass('on')
-    return false
-  } else {
-    $('.worklist li a').removeClass('on')
-    $(this).addClass('on')
-    $('.worklist2').addClass('on')
-    $('.worklist2').stop().animate({ 'width': '40%' })
-  }
+    let $animatedItems;
+    // ... (이전과 동일한 $animatedItems 정의 로직)
+    if (isMini) {
+        $animatedItems = $workView.find('.viewBox');
+    } else {
+        const $title = $workView.find('> span.title');
+        const $otherItems = $workView.find('> a, > span:not(.title)');
+        $animatedItems = $.merge($.merge([], $title), $otherItems);
+    }
+    
+    // 1. 초기 상태 설정 (GSAP가 애니메이션을 걸 요소들을 확실히 숨김)
+    gsap.set($animatedItems, { opacity: 0, y: 20, force3D: true }); 
 
-  $('.worklist').stop().animate({ 'width': '60%' })
-  $('.workView').hide()
-  $(href).show()
-})
+    if (sw) {
+        // [닫기 로직] (변경 없음)
+        $('.worklist2').stop().animate({ 'width': 0 });
+        $('.worklist').stop().animate({ 'width': '100%' });
+        $('.worklist li a').removeClass('on');
+        $('.worklist2').removeClass('on');
+        
+        gsap.set($animatedItems, { opacity: 0, y: 20, force3D: true });
+        return false;
+    } else {
+        // [열기 로직]
+        $('.worklist li a').removeClass('on');
+        $(this).addClass('on');
+        $('.worklist2').addClass('on');
+        
+        // **⭐ 1단계: workView 표시 및 worklist 너비 애니메이션**
+        $('.workView').hide();
+        $workView.show(); 
+        $('.worklist').stop().animate({ 'width': '60%' });
+        
+        // **⭐ 2단계: worklist2 너비 애니메이션 완료 후, GSAP 실행**
+        $('.worklist2').stop().animate({ 'width': '40%' }, {
+            duration: 400, // 애니메이션 지속 시간 (선택 사항)
+            complete: function() {
+                // jQuery 애니메이션이 완전히 끝난 후, GSAP 순차 애니메이션 실행
+                gsap.to($animatedItems, {
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 0.5, 
+                    ease: "power2.out", 
+                    stagger: 0.2, 
+                    force3D: true
+                });
+            }
+        });
+    }
+});
 
+// 닫기 버튼 로직 (닫을 때도 동일하게 초기화)
 $('.close').click(function(e){
-    e.preventDefault()
-    $('.worklist2').stop().animate({'width': 0})
-    $('.worklist').stop().animate({ 'width': '100%' })
-    $('.worklist2').removeClass('on')
-    $('.worklist li a').removeClass('on')
- })
+    e.preventDefault();
+    
+    const currentViewHref = $('.worklist li a.on').attr('href');
+    if (currentViewHref) {
+        const $workViewToClose = $(currentViewHref);
+        const isMini = $workViewToClose.hasClass('mini');
 
+        let $animatedItems;
+        if (isMini) {
+            $animatedItems = $workViewToClose.find('.viewBox');
+        } else {
+            const $title = $workViewToClose.find('> span.title');
+            const $otherItems = $workViewToClose.find('> a, > span:not(.title)');
+            $animatedItems = $.merge($.merge([], $title), $otherItems);
+        }
+        
+        // 닫을 때 초기 상태로 설정
+        gsap.set($animatedItems, { opacity: 0, y: 20, force3D: true });
+    }
 
+    $('.worklist2').stop().animate({'width': 0});
+    $('.worklist').stop().animate({ 'width': '100%' });
+    $('.worklist2').removeClass('on');
+    $('.worklist li a').removeClass('on');
+});
+
+// worklist li 애니메이션
+const items = document.querySelectorAll(".item");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    // 1. 요소가 뷰포트 안에 들어왔을 때 (스크롤 다운)
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    } 
+    // 2. 요소가 뷰포트를 벗어났을 때 (스크롤 업 또는 아래로 벗어남)
+    else {
+      entry.target.classList.remove("show"); // show 클래스 제거 (리셋)
+    }
+  });
+}, { 
+  threshold: 0.2,
+  rootMargin: "0px 0px 0px 0px" 
+});
+
+items.forEach((item, index) => {
+  item.style.transitionDelay = `${index * 0.05}s`;
+  observer.observe(item);
+});
 
 //project
 $(document).ready(function () {
