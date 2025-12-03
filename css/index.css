@@ -336,16 +336,16 @@ video {
   font-size: 20px;
   margin: 50px;
 }
-.content .projectwrap .project .worklist {
+.content .projectwrap .project .projectlist {
   width: 100%;
 }
-.content .projectwrap .project .worklist > li {
+.content .projectwrap .project .projectlist > li {
   border-bottom: solid 1px #000;
 }
-.content .projectwrap .project .worklist > li a {
+.content .projectwrap .project .projectlist > li a {
   padding: 20px 0 30px 0;
 }
-.content .projectwrap .project .worklist > li a .title {
+.content .projectwrap .project .projectlist > li a .title {
   padding-bottom: 20px;
 }
 
