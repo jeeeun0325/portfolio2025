@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @font-face {
     font-family: 'GowunDodum-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
@@ -38,12 +40,12 @@ header ul li{margin-right: 30px;font-size: 18px;font-weight: 600;cursor: pointer
 .nav li.on{opacity: 1;}
 .nav li:hover{opacity: 1;}
 
-.nav li:nth-child(1){background: url(./img/울트라1.jpg);background-size: 200px 200px}
-.nav li:nth-child(2){background: url(./img/스틱레브르1.jpg);background-size: 200px 200px}
-.nav li:nth-child(3){background: url(./img/핸드앤네일1.jpg);background-size: 200px 200px}
-.nav li:nth-child(4){background: url(./img/필링1.jpg);background-size: 200px 200px}
-.nav li:nth-child(5){background: url(./img/크렘프레쉬1.jpg);background-size: 200px 200px}
-.nav li:nth-child(6){background: url(./img/크렘크림1.jpg);background-size: 200px 200px}
+.nav li:nth-of-type(1){background: url(./img/울트라1.jpg);background-size: 200px 200px}
+.nav li:nth-of-type(2){background: url(./img/스틱레브르1.jpg);background-size: 200px 200px}
+.nav li:nth-of-type(3){background: url(./img/핸드앤네일1.jpg);background-size: 200px 200px}
+.nav li:nth-of-type(4){background: url(./img/필링1.jpg);background-size: 200px 200px}
+.nav li:nth-of-type(5){background: url(./img/크렘프레쉬1.jpg);background-size: 200px 200px}
+.nav li:nth-of-type(6){background: url(./img/크렘크림1.jpg);background-size: 200px 200px}
 .proContainer{width: 700px;height: 400px;overflow: hidden;}
 .proWrap{width: 700px;height: 2400px;}
 .pro{width: 700px;height: 400px;background: rgba(255, 255, 255, 0.552);display: flex;}
@@ -51,8 +53,7 @@ header ul li{margin-right: 30px;font-size: 18px;font-weight: 600;cursor: pointer
 .img img{width: 100%;}
 .txtBox{width: 300px;padding: 20px;line-height: 1.1;}
 .desc{padding-top: 20px;;}
-.txtBox h2{font-size: 30px;padding-bottom: 20px;font-weight: 600;border-bottom: 1px solid #eee;margin-bottom: 20px;}
-.txtBox>h3{font-size: 20px;padding-bottom: 20px;}
-.number h3{font-size: 18px;}
-.number h3 span{display: inline-block;font-size: 28px;font-weight: 600;font-style: italic;padding-right: 5px;}
-.desc .number{padding-bottom: 10px;}
+.txtBox .name{font-size: 30px;padding-bottom: 20px;font-weight: 600;border-bottom: 1px solid #eee;margin-bottom: 20px;}
+.txtBox>p:nth-of-type(2){font-size: 20px;padding-bottom: 20px;}
+.desc p{font-size: 18px;padding-bottom: 10px;}
+.desc p span{display: inline-block;font-size: 28px;font-weight: 600;font-style: italic;padding-right: 5px;}

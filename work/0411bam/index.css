@@ -18,7 +18,7 @@ section{position: relative;top: 60px}
 .swiper-slide img{width: 100%;height: 100%;object-fit: cover;vertical-align: top;}
 .banner li img{vertical-align: top;}
 .con1,.con2{text-align: center;}
-.sticky{position: sticky;top: 60px; height: 100%;}
+.sticky{position: sticky;top: 59px; height: 100%;}
 
 #sect1 .content span{color: #fadd01;font-weight: 600;padding: 10% 0; display: block;}
 #sect1 .content p{color: #ccc}
@@ -30,13 +30,13 @@ section{position: relative;top: 60px}
 #sect5 .content{background: rgb(255, 222, 237);}
 #sect6 .content{background: rgb(234, 237, 200)}
 #sect7 .content{background: rgb(215, 255, 239);padding-bottom: 10%;}
-.content span.title{padding-top: 10%;font-weight: 600; display: block}
+.content span.title{padding-top: 10%;font-weight: 600; display: block; font-size: 1.2rem;}
 .content span.title2{color: #666;font-weight: 600;padding: 5% 0;display: block;}
-.content p{color: #999;}
+.content p{color: #999; font-size: 1.25rem;}
  .txt{padding: 5% 0;}
 .txt p:nth-of-type(1){font-weight: 600;color: #666;}
 .txt p:nth-of-type(2){font-weight: 400;color: #999;}
-.txt p span{color: #ff7800;font-weight: 600;}
+.txt p b{color: #ff7800;font-weight: 600;}
 #sect1 .mov{background: #141e3c;}
 #sect2 .mov{background: rgb(255, 120, 0);}
 #sect3 .mov{background: rgb(255, 225, 0);}
@@ -58,6 +58,7 @@ footer{position: relative;;top: 60px;}
 .app ul{display: flex;}
 .app ul li{margin-right: 10px;cursor: pointer;}
 .app li img{width: 100%;}
+.txtBox {padding: 0 20px;}
 
 
 /* 태블릿 모바일 */
@@ -92,9 +93,9 @@ footer{position: relative;;top: 60px;}
 .ftmobile{order:2;width: 100%;}
 .ftSns li{width: 8%;}
 .ftSns img{width: 24px;}
-.content h3{font-size: 1.2rem;}
-    .content p{font-size: 0.8rem;}
-    #sect1 .content p{font-size: 0.5rem;}
+.content span{font-size: 1.5rem;}
+    .content p{font-size: 1.3rem;}
+    #sect1 .content p{font-size: 1.2rem;}
 }
 /* pc */
 @media screen and (min-width:1023px){
@@ -110,10 +111,10 @@ footer{position: relative;;top: 60px;}
     .mov{display: none;}
     section:nth-child(even) .inner .content{order:1}
     section:nth-child(even) .inner .sticky{order:2}
-    #sect1 .content h3{font-size: 3rem;}
-    #sect1 .content p{font-size: 1rem;}
+    #sect1 .content span{font-size: 1.7rem;}
+    #sect1 .content p{font-size: 1.25rem;}
     .content span.title2{font-size: 2rem;}
-    .content p:nth-of-type(2){font-size: 0.9rem;}
+    .content p:nth-of-type(2){font-size: 1.2rem;}
     .notice .inner ul li{width: 50%;}
     .ftmobile{display: none;}
     .ftUnder .inner{justify-content: space-between;}
