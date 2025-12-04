@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 body{background: #f3f0eb;line-height: 1.2;}
 header{height: 90px;box-shadow: 0 0 4px rgba(0,0,0,0.5); display: flex;align-items: center; justify-content: space-between;padding: 20px;position: fixed;width: 100%;background: #f3f0eb;z-index: 1;}
 header h1{position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);}
@@ -68,8 +70,9 @@ nav ul li{margin-right: 30px;}
 .productInner span{font-size: 12px;text-align: center;display: block;padding: 10px 0;}
 .btn{padding:20px 0 10px;}
 .btn ul{display: flex;justify-content: center;gap: 20px;}
-.btn ul li{width: 25%;text-align: center; }
-.btn ul li a{display: block;padding: 20px; color: #eee;font-weight: 600;background: #085815;border-radius: 20px;}
+.btn ul li{width: 23%;text-align: center; }
+.btn ul li a{display: block;padding: 15px; color: #eee;font-weight: 600;background: #085815;border-radius: 20px; font-size: 18px;}
+.btn ul li a:hover {background: #000;}
 
 
 .arrow{position: absolute;width: 30px;height: 30px;top:50%;transform: translateY(-50%);}

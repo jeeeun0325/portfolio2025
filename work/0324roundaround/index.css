@@ -225,9 +225,7 @@ ul.thum{padding: 50px 0;}
 .sect6 h2{font-size: 50px;padding: 100px 0 20px;}
 .swiper-button-next{width: 30px;height: 30px;position: absolute;right: 15% !important;}.swiper-button-prev{width: 30px;height: 30px;position: absolute;left: 15% !important;}
 /* footer */
-.footerInner{width: 1200px;margin: auto;}
+.footerInner{max-width: 1200px;margin: auto;}
 
 
     }
-    
-   
