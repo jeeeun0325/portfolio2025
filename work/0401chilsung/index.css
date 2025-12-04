@@ -70,8 +70,6 @@ width: 100%;height: 100%;position: absolute;top: 0;}
 .btnBox {text-align: center; margin-top: 20px;}
 .btnBox button{color: #000;padding: 10px 20px;border: 1px solid #fff;border-radius: 30px;background: #fff;font-weight: bold; cursor: pointer; font-size: 18px;}
 
-.box .txt1{font-size: 2vw;letter-spacing: -0.085em;margin-bottom: 1.5vw;}
-.box .txt2{font-size: 4vw;}
 .box p{font-size: 18px;line-height: 1.5;}
 
 
@@ -105,7 +103,7 @@ h3.sect2tit{text-align: center;}
   .drink{margin: auto;text-align: center;}
   .drinkMenu ul{display: flex;justify-content: center;}
   .drinkMenu ul li{padding: 0 15px;}
-  .drinkMenu li a{padding: 10px 5px;display: block;font-size: 1.2vw;}
+  .drinkMenu li a{padding: 10px 5px;display: block;}
   .drinkMenu li.on a{border-bottom: 4px solid #149f5c;font-weight:900;}
   span.line2{width: 1px;height: 150px;background: #000;display: block;margin: auto;}
   .sect2{background-image: url(./img/탄산bg.jpg);background-position-y: 300px;background-repeat: no-repeat;margin-bottom: 150px;}
@@ -141,8 +139,8 @@ header h1{position: absolute;left: 50%;top: 50%;
     transform: translate(-50%,-50%);width: 120px;}
 header h1 img{width: 100%;}
 header nav{display: none;}
-.bg{height: 100vh;}
-.fbg{height: 100vh;}
+.bg{height: 100%;}
+.fbg{height: 100%;}
 .videobg{height: 100%;}
 video{height: 100%;}
 .mbimg{position: absolute;top: 173px;
@@ -150,25 +148,24 @@ video{height: 100%;}
 .mainimg,.subimg{display: none;}
 .gnb{display: none}
 .banner h2, .banner p,.banner a{font-size: 14px;}
-.sect1{height: 153vw;}
-section .content{top:28%;height: 70vw;}
+section .content{top:28%;height: 347px; margin-top: 202px; margin-bottom: 170px;}
 .fix {top: 15%;}
 .fix h2{font-size: 60px;;}
 .fix p{font-size: 14px;}
 .box{padding: 30px;}
-.box .txt1{ font-size: 5.5vw;}
-.box .txt2{font-size: 10vw;}
+.box .txt1{ font-size: 1.5rem;}
+.box .txt2{font-size: 3rem;}
 .box p{font-size: 12px;width: 230px;}
 .btn{bottom: 38px;}
 .btn a{font-size: 12px;padding:10px 5px;}
 .btn ul li{padding: 0 5px;margin-left:10px;}
-.img{width: 54%;height: 50vw;}
+.img{width: 54%;}
 .content{position: relative;}
 /* .img3{ bottom: 0;right: 0;width: 215px;height: 175px;}
 .img3 img{width: 100%;} */
 .img1 img,.img2 img{width: 50%;left: 62%;}
 
-.connav{padding-top: 50vw;}
+.connav{top: 35%;}
 .line{height: 1px;}
 .line a{bottom: 73px;width: 5px;height: 5px;}
 .connav ul li a{font-size: 12px;}
@@ -183,7 +180,7 @@ span.line2{height: 20px;margin-bottom: 30px;}
 .drink ul li .pr1{font-size: 25px;;padding-bottom: 20px;}
 .drink ul li p{font-size:15px;;margin: auto;padding:0 20px 50px;}
 a.buy{font-size: 17px;padding: 10px 20px;}
-.sect2{background-image: none;}
+.sect2{background-image: none; padding-top: 50px;}
 footer{text-align: center;padding: 20px;}
 footer h1{width: 95px;padding-bottom: 20px;}
 footer h1 img{width: 100%;}
@@ -214,7 +211,6 @@ nav{display: none;}
 .fbg{height: 100vh;}
 .videobg {height: 100%;}
 video {height: 100%;}
-/* .sect1{height: 110vw;} */
 section .content{height: 640px; margin-top: 330px; margin-bottom: 200px;}
 .box{padding: 40px;}
 .fix h2{font-size: 160px;;}
@@ -239,16 +235,16 @@ section .content{height: 640px; margin-top: 330px; margin-bottom: 200px;}
  /* sect2 */
  .sect2{position: relative;}
  .sect2bg{width: 100%;background: rgba(39,145,115,0.9);height:200px;;}
- h3.sect2tit{font-size: 3vw;color: #fff;padding: 50px;}
+ h3.sect2tit{font-size: 2rem;color: #fff;padding: 50px;}
  .drinkMenu{height: 185px;padding-top: 45px;}
  span.line2{margin-bottom: 50px;}
 .con2{position: absolute;top: 0;left: 50%;transform: translateX(-50%);}
-.drinkMenu ul li a{font-size: 2.2vw;}
+.drinkMenu ul li a{font-size: 1.2rem;}
 .drink{padding: 100px 0;}
-.drink ul li .pr1{font-size: 4vw;;padding-bottom: 50px;}
-.drink ul li p{font-size: 1.6vw;padding-bottom: 50px;width: 850px;margin: auto;}
+.drink ul li .pr1{font-size: 2.3rem;;padding-bottom: 50px;}
+.drink ul li p{font-size: 1.2rem;padding-bottom: 50px;width: 850px;margin: auto;}
 .drink ul{width: 100%;}
-a.buy{font-size: 2vw;}
+a.buy{font-size: 1.5rem;}
 .con2{width: 100%;}
 .grid{margin: auto;width: 888px;}
 .grid-item {width: 294px;}
@@ -281,21 +277,16 @@ nav ul{display: flex;width: 100%;text-align: center;}
 .fix p{font-size: 24px;}
 .videobg{width: 100%;}
 .box{padding: 60px;}
-.box .txt1{font-size: 2.3rem;letter-spacing: -0.085em;margin-bottom: 1.5vw;}
+.box .txt1{font-size: 2.3rem;letter-spacing: -0.085em;margin-bottom: 27px;}
 .box .txt2{font-size: 4.15rem;margin-bottom: 20px;}
 .box p{font-size: 18px;padding-bottom: 30px;line-height: 1.5;}
 .img3{display: none;}
-/* .sect1{height: 62vw;} */
 section .content{width: 54%;max-width: 1030px;height: 480px;padding: 0; min-width: 935px; min-height: 433px; margin-top: 390px; margin-bottom: 200px;}
 .img{bottom: -100px;}
-/* .img1,.img2{width: 50%;height: 30vw;right:-100px;top: -10%;} */
 .img1 img,.img2 img{width: 50%;left: 62%;}
 .btn a{font-size: 20px;padding: 15px 20px;;}
 .btn ul li{padding: 0 10px;margin: 0 5px;}
 .btn{bottom: 60px;left: 20px;}
-
-
-/* .connav{top:23vw} */
 .connav ul{max-width: 1024px;}
 .line a.pointer{left: 0;top:-4px}
 
@@ -314,7 +305,7 @@ li.new{border: 1px solid #ddd;border-radius: 20px;}
 li.new a{display: flex;align-items: center;padding: 10px; }
 li.new a p{padding: 0 7px;color: #149f5c;}
 /* sect2 */
-.sect2bg{width: 100%;background: rgba(39,145,115,0.9);height: 300px;;}
+.sect2bg{width: 100%;background: rgba(39,145,115,0.9);height: 300px;}
 .grid {
   width: 1184px;
 }
@@ -326,7 +317,7 @@ li.new a p{padding: 0 7px;color: #149f5c;}
 .drink ul li .pr1{font-size: 3rem;}
 .drink ul li p{font-size: 1.2rem}
 .sect2bg{height: 300px;;}
-h3.sect2tit{font-size: 3vw}
+h3.sect2tit{font-size: 3.5rem;}
 a.buy{font-size: 1.2rem;}
 
 }

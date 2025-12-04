@@ -60,14 +60,7 @@ $(href).find('.mbimg').delay(1000)
 $(window).resize(function(){
 pointInit($('.connav ul li').first('a'))
 
-
 })
-
-
-
-
-
-
 
 
 $('.connav ul li a').click(function(e){
