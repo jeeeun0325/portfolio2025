@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @font-face {
     font-family: 'noto';
     src: url(/font/NotoSans-Light.woff);
@@ -31,13 +33,14 @@ section{width: 100%;height: 100vh;position: relative;}
 #sect2 .txtBox.on,#sect4 .txtBox.on{color: #fff;padding: 30px;bottom: 0;left:60% ;opacity: 1;}
 .txtBox h2{font-size: 45px;padding-bottom: 20px;font-weight: 600;text-shadow: 0 0 7px rgb(0 0 0 / 50%)}
 .txtBox p{font-size: 18px;padding-bottom: 30px;}
-.txtBox a{display: inline-block;color: #fff;padding: 10px 20px;border: 1px solid #fff;}
+.txtBox a{display: inline-block;color: #fff;padding: 10px 20px;border: 1px solid #fff; transition: .3s;}
+.txtBox a:hover {background: #fff; color: #000;}
 figure{width: 100%;text-align: center;}
 figure img{width: 100px;}
 figcaption{text-align: center;margin-top: 7px;color: #fff;}
 .brand{position: relative;top: 55%;}
-.swiper-button-next,.swiper-button-prev{position: absolute;top: 67%;;}
-.swiper-button-prev{left: 53%;}
+.swiper-button-next,.swiper-button-prev{position: absolute;top: 67% !important;}
+.swiper-button-prev{left: 53% !important;;}
 .swiper-button-prev::after{width: 30px;height: 30px;content: '';background: url(./img/left-arrowwhite.png);background-size: cover;}
 .swiper-button-next{right: 7%;}
 .swiper-button-next::after{width: 30px;height: 30px;content: '';background: url(./img/right-arrowwhite.png);background-size: cover;}
@@ -49,3 +52,6 @@ ul.ftMenu li {padding: 10px;}
 ul.sns{justify-content: center;}
 ul.sns li{width: 41px;height: 41px;margin: 10px;}
 ul.sns li img{width: 100%;}
+
+.swiper-button-next svg, .swiper-button-prev svg{
+    display: none;}
