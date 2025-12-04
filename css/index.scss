@@ -4,6 +4,8 @@
 @import "base.css";
 @import "font.css";
 
+body {font-size: 16px;}
+
 /****************** intro ******************/
 /* row1 */
 .intro .grid .row1 {
@@ -471,3 +473,12 @@ video {
 .content .flex.col {
   flex-direction: column;
 }
+
+.abt_me {display: flex;
+.pic {
+  width: 50%;
+  img {width: 100%;}
+}
+.inner {
+  width: 50%;
+}}

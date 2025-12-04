@@ -2,6 +2,10 @@
 @import "reset.css";
 @import "base.css";
 @import "font.css";
+body {
+  font-size: 16px;
+}
+
 /****************** intro ******************/
 /* row1 */
 .intro .grid .row1 .row__item:nth-of-type(1) .row__item-img {
@@ -378,4 +382,17 @@ video {
 
 .content .flex.col {
   flex-direction: column;
+}
+
+.abt_me {
+  display: flex;
+}
+.abt_me .pic {
+  width: 50%;
+}
+.abt_me .pic img {
+  width: 100%;
+}
+.abt_me .inner {
+  width: 50%;
 }/*# sourceMappingURL=index.css.map */
