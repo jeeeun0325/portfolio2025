@@ -495,3 +495,6 @@ $(window).scroll(function () {
 
 
 })
+
+document.querySelector('.inner')
+  .addEventListener('wheel', e => e.stopPropagation(), { passive: false });

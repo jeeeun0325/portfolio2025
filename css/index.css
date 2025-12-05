@@ -448,6 +448,7 @@ video {
 }
 .abtBox .abt_txt .abt_me .inner P {
   font-size: 18px;
+  line-height: 1.2;
 }
 .abtBox .abt_txt .abt_me .inner > p {
   padding: 0 15px 30px 0;
