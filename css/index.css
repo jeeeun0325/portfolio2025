@@ -384,15 +384,117 @@ video {
   flex-direction: column;
 }
 
-.abt_me {
+.abtBox {
+  width: 100%;
   display: flex;
 }
-.abt_me .pic {
+.abtBox .abtimg_wrap {
   width: 50%;
 }
-.abt_me .pic img {
-  width: 100%;
+.abtBox .abt_img {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../img/abt_bl.jpg) no-repeat center/cover;
 }
-.abt_me .inner {
+.abtBox .abt_img img {
+  max-width: 500px;
+  width: 80%;
+}
+.abtBox .abt_img02 {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../images/abt02_bl.png) no-repeat center/cover;
+}
+.abtBox .abt_img02 img {
+  max-width: 500px;
+  width: 60%;
+}
+.abtBox .abt_txt {
   width: 50%;
+  padding: 120px 0;
+}
+.abtBox .abt_txt .abt_me {
+  padding: 30px 15px 30px 30px;
+  width: 80%;
+  border: 1px solid #000;
+  border-radius: 25px;
+  margin: auto;
+}
+.abtBox .abt_txt .abt_me .inner {
+  max-height: calc(100vh - 300px);
+  overflow-y: scroll;
+}
+.abtBox .abt_txt .abt_me .inner::-webkit-scrollbar {
+  width: 7px;
+}
+.abtBox .abt_txt .abt_me .inner::-webkit-scrollbar-thumb {
+  background: rgba(90, 89, 89, 0.651);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.abtBox .abt_txt .abt_me .inner::-webkit-scrollbar-track {
+  background: rgba(248, 244, 244, 0.829);
+  border-radius: 16px;
+}
+.abtBox .abt_txt .abt_me .inner .abt_title {
+  display: block;
+  font-size: 25px;
+  font-weight: 600;
+  padding-bottom: 30px;
+}
+.abtBox .abt_txt .abt_me .inner P {
+  font-size: 18px;
+}
+.abtBox .abt_txt .abt_me .inner > p {
+  padding: 0 15px 30px 0;
+}
+.abtBox .abt_txt .abt_me .inner ul {
+  padding-bottom: 30px;
+}
+.abtBox .abt_txt .abt_me .inner ul li {
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+.abtBox .abt_txt .abt_me .inner ul li:last-child {
+  padding-bottom: 0;
+}
+.abtBox .abt_txt .abt_me .inner ul li span {
+  display: block;
+}
+.abtBox .abt_txt .abt_me .inner .flex > div {
+  width: 50%;
+}
+
+.career li p {
+  position: relative;
+  padding-left: 15px;
+}
+.career li p::before {
+  position: absolute;
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: #000;
+  border-radius: 50%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.career li span {
+  position: relative;
+  padding-left: 20px;
+}
+.career li span::before {
+  position: absolute;
+  content: "";
+  width: 8px;
+  height: 1px;
+  background: #000;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }/*# sourceMappingURL=index.css.map */
