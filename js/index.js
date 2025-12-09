@@ -323,17 +323,24 @@ window.addEventListener('touchmove', (ev) => {
 });
 
 // work
-// ---------------------------------------------
-// 1) Isotope 초기화
-// ---------------------------------------------
-var iso = new Isotope('.worklist', {
-  itemSelector: '.item',
-  layoutMode: 'masonry',
-  percentPosition: true,
-  transitionDuration: '0.4s',
-  fitWidth: true
+let resizeTimer;
+window.addEventListener('resize', () => {
+  document.body.classList.add('resizing');
+  
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    document.body.classList.remove('resizing');
+  }, 200);
 });
 
+import autoAnimate from 'https://cdn.jsdelivr.net/npm/@formkit/auto-animate@0.8.0/+esm';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const list = document.querySelector('.worklist');
+  if (list) {
+    autoAnimate(list);
+  }
+});
 // ---------------------------------------------
 // work 리스트 열기/닫기
 // ---------------------------------------------
@@ -363,9 +370,8 @@ $('.worklist li a').on('click', function (e) {
   // ---------------------------------------------
   if (sw) {
     $('.worklist2').stop().animate({ 'width': 0 });
-    $('.worklist').stop().animate({ 'width': '100%' }, 300, function () {
-      iso.layout();  // ★ 변경 후 Isotope 재배치
-    });
+    $('.worklist').stop().animate({ 'width': '100%' }, 300);
+    $('.worklist').removeClass('wd60');
 
     $('.worklist li a').removeClass('on');
     $('.worklist2').removeClass('on');
@@ -383,15 +389,12 @@ $('.worklist li a').on('click', function (e) {
   $('.workView').hide();
   $workView.show();
 
-  $('.worklist').stop().animate({ 'width': '60%' }, 300, function () {
-    iso.layout();  // ★ 폭이 줄어들었으니 재배치
-  });
+  $('.worklist').stop().animate({ 'width': '60%' }, 300);
+  $('.worklist').addClass('wd60')
 
   $('.worklist2').stop().animate({ 'width': '40%' }, {
     duration: 400,
     complete: function () {
-      iso.layout(); // ★ 오른쪽 패널이 열리면 한 번 더 배치 안정화
-
       gsap.to($animatedItems, {
         opacity: 1,
         y: 0,
@@ -428,16 +431,15 @@ $('.close').click(function (e) {
   }
 
   $('.worklist2').stop().animate({ 'width': 0 });
-  $('.worklist').stop().animate({ 'width': '100%' }, 300, function () {
-    iso.layout(); // ★ 닫힐 때도 재배치
-  });
+  $('.worklist').stop().animate({ 'width': '100%' }, 300);
+  $('.worklist').removeClass('wd60');
 
   $('.worklist2').removeClass('on');
   $('.worklist li a').removeClass('on');
 });
 
 // ---------------------------------------------
-// item 등장 애니메이션 (IntersectionObserver)
+// item
 // ---------------------------------------------
 const items = document.querySelectorAll(".item");
 
@@ -445,8 +447,7 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
-    } else {
-      entry.target.classList.remove("show");
+      observer.unobserve(entry.target);
     }
   });
 }, {
@@ -458,6 +459,36 @@ items.forEach((item, index) => {
   item.style.transitionDelay = `${index * 0.05}s`;
   observer.observe(item);
 });
+
+
+// 한줄씩 뜨는 애니메이션
+// const items = document.querySelectorAll(".item");
+
+// const observer = new IntersectionObserver(entries => {
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       entry.target.classList.add("show");
+//     }
+//   });
+// }, {
+//   threshold: 0.2,
+//   rootMargin: "0px 0px 0px 0px"
+// });
+
+// let lastTop = -1;
+// let rowDelay = 0;
+
+// items.forEach((item) => {
+//   observer.observe(item);
+
+//   const top = item.offsetTop;
+//   if (top !== lastTop) {
+//     rowDelay += 0.12;
+//     lastTop = top;
+//   }
+
+//   item.style.transitionDelay = `${rowDelay}s`;
+// });
 
 //project
 $(document).ready(function () {

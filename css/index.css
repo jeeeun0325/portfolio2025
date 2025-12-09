@@ -213,14 +213,18 @@ video {
 .content .workwrap .work .worklist {
   width: 100%;
   padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+.content .workwrap .work .worklist.wd60 {
+  grid-template-columns: repeat(2, 1fr);
 }
 .content .workwrap .work .worklist li.item {
-  width: 22%;
-  min-width: 370px;
   opacity: 0;
   transform: translateY(30px);
-  transition: 0.6s ease;
-  margin: 15px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 .content .workwrap .work .worklist li.item.show {
   opacity: 1;
@@ -330,22 +334,6 @@ video {
 }
 .content .workwrap .work .close:hover {
   background-image: url(../img/close_black.png);
-}
-
-.worklist {
-  margin: auto;
-}
-.worklist:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.worklist .item {
-  float: left;
-}
-.worklist .item img {
-  display: block;
-  max-width: 100%;
 }
 
 .content .projectwrap .project {
@@ -510,4 +498,37 @@ video {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+@media screen and (max-width: 1420px) {
+  .grid {
+    width: 249vw;
+    height: 170vh;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .enter {
+    font-size: 1.5rem;
+  }
+  .grid {
+    width: 240vw;
+    height: 123vh;
+  }
+}
+@media screen and (max-width: 720px) {
+  .grid {
+    width: 312vw;
+    height: 128vh;
+  }
+}
+@media screen and (max-width: 720px) {
+  .grid {
+    width: 312vw;
+    height: 128vh;
+  }
+}
+@media screen and (max-width: 500px) {
+  .grid {
+    width: 465vw;
+  }
 }/*# sourceMappingURL=index.css.map */
