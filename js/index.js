@@ -534,23 +534,23 @@ $(document).ready(function () {
   });
 });
 
-// scroll
+//섹션 h2  
 $(window).scroll(function () {
-  let scrTop = $(window).scrollTop()
-  let winH = $(window).height()
-  let winW = $(window).outerWidth()
-  let secTop = $('#work').offset().top
-  //  console.log(winW, winH , scrTop, secTop)
+  let scrTop = $(window).scrollTop();
+  let winH = $(window).height();
 
-  if (scrTop >= secTop - 100) {
+  $(".section").each(function () {
+    let secTop = $(this).offset().top;
+    let header = $(this).find(".content__header");
 
-    $('.content__header').addClass('on')
-  } else {
-    $('.content__header').removeClass('on')
-  }
+    if (scrTop >= secTop - winH / 2) {
+      header.addClass("on");
+    } else {
+      header.removeClass("on");
+    }
+  });
+});
 
-
-})
-
+// about me scroll
 document.querySelector('.inner')
   .addEventListener('wheel', e => e.stopPropagation(), { passive: false });

@@ -302,7 +302,7 @@ a:focus-visible {
 }
 
 .content__header h2 {
-	font-size: 2rem;
+	font-size: clamp(7rem, 8vw, 14rem);
 	font-family: new-science-extended, sans-serif;
 	font-weight: 400;
 	margin: 6rem 0 10vh;
@@ -338,7 +338,7 @@ a:focus-visible {
 	margin-top: 20vh;
 	transform: translateY(calc(-1 * var(--trans-content)));
 }
-
+/* 
 @media screen and (min-width: 53em) {
 	body {
 		--page-padding: 2rem 3rem;
@@ -354,4 +354,4 @@ a:focus-visible {
 	.content__text p.highlight {
 		font-size: clamp(2rem,7vh,4rem);
 	}
-}
+} */
