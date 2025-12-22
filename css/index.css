@@ -222,6 +222,13 @@ video {
 }
 .content .workWrap .work .worklist {
   width: 100%;
+  transition: 0.3s;
+}
+.content .workWrap .work .worklist.wd60 {
+  width: 60%;
+}
+.content .workWrap .work .worklist.wd60 .workPc {
+  grid-template-columns: repeat(2, minmax(0, 450px));
 }
 .content .workWrap .work .worklist .workPc {
   padding: 30px;
@@ -229,9 +236,6 @@ video {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   justify-content: center;
-}
-.content .workWrap .work .worklist .workPc.wd60 {
-  grid-template-columns: repeat(2, minmax(0, 450px));
 }
 .content .workWrap .work .worklist .workPc li.item {
   opacity: 0;
@@ -246,6 +250,8 @@ video {
   display: block;
   opacity: 1;
   transition: 0.2s;
+  max-width: 500px;
+  margin: 0 auto;
 }
 .content .workWrap .work .worklist .workPc li.item a.on {
   transform: scale(1.05);
@@ -274,14 +280,15 @@ video {
   width: 100%;
   height: 100%;
 }
-.content .workWrap .work .worklist2.on {
+.content .workWrap .work .worklist2.wd40 {
   height: 100vh;
   padding: 80px 40px 0;
   position: sticky;
   top: 30vh;
   border-left: 2px solid #ddd;
+  width: 40%;
 }
-.content .workWrap .work .worklist2.on .close {
+.content .workWrap .work .worklist2.wd40 .close {
   display: block;
 }
 .content .workWrap .work .worklist2 .workView {
@@ -608,6 +615,20 @@ video {
   .grid {
     width: 312vw;
     height: 128vh;
+  }
+  .content .workWrap .work .worklist .workMob {
+    display: block;
+  }
+  .content .workWrap .work .worklist .workMob .mobItem {
+    width: 80%;
+  }
+  .content .workWrap .work .worklist .workMob .mobItem:not(:last-child) {
+    padding-bottom: 30px;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 30px;
+  }
+  .content .workWrap .work .worklist .workMob .mobItem:not(:last-child) .title {
+    height: unset;
   }
 }
 @media screen and (max-width: 500px) {

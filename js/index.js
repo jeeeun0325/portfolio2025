@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ---------------------------------------------
 // work 리스트 열기/닫기
 // ---------------------------------------------
-$('.worklist li a').on('click', function (e) {
+$('.worklist li.item a').on('click', function (e) {
   e.preventDefault();
 
   let href = $(this).attr('href');
@@ -369,12 +369,10 @@ $('.worklist li a').on('click', function (e) {
   // 닫기
   // ---------------------------------------------
   if (sw) {
-    $('.worklist2').stop().animate({ 'width': 0 });
-    $('.worklist').stop().animate({ 'width': '100%' }, 300);
+    $('.worklist2').removeClass('wd40');
     $('.worklist').removeClass('wd60');
 
     $('.worklist li a').removeClass('on');
-    $('.worklist2').removeClass('on');
 
     return false;
   }
@@ -384,27 +382,25 @@ $('.worklist li a').on('click', function (e) {
   // ---------------------------------------------
   $('.worklist li a').removeClass('on');
   $(this).addClass('on');
-  $('.worklist2').addClass('on');
+  $('.worklist2').addClass('wd40');
 
   $('.workView').hide();
   $workView.show();
 
-  $('.worklist').stop().animate({ 'width': '60%' }, 300);
   $('.worklist').addClass('wd60')
 
-  $('.worklist2').stop().animate({ 'width': '40%' }, {
-    duration: 400,
-    complete: function () {
-      gsap.to($animatedItems, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        stagger: 0.2,
-        force3D: true
-      });
-    }
-  });
+  $('.worklist2').addClass('wd40');
+
+gsap.to($animatedItems, {
+  opacity: 1,
+  y: 0,
+  duration: 0.5,
+  ease: "power2.out",
+  stagger: 0.2,
+  force3D: true,
+  delay: 0.4
+});
+
 });
 
 // ---------------------------------------------
@@ -430,11 +426,9 @@ $('.close').click(function (e) {
     gsap.set($animatedItems, { opacity: 0, y: 20, force3D: true });
   }
 
-  $('.worklist2').stop().animate({ 'width': 0 });
-  $('.worklist').stop().animate({ 'width': '100%' }, 300);
   $('.worklist').removeClass('wd60');
 
-  $('.worklist2').removeClass('on');
+  $('.worklist2').removeClass('wd40');
   $('.worklist li a').removeClass('on');
 });
 
@@ -489,6 +483,20 @@ items.forEach((item, index) => {
 
 //   item.style.transitionDelay = `${rowDelay}s`;
 // });
+
+function checkWidth() {
+  let winW = $(window).outerWidth()
+
+  if (winW <= 1080) {
+    $('.worklist').removeClass('wd60')
+    $('.worklist2').removeClass('wd40')
+  }
+}
+
+$(window).on('resize load', function () {
+  checkWidth()
+})
+
 
 //project
 $(document).ready(function () {

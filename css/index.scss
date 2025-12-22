@@ -279,6 +279,15 @@ video {
 
       .worklist {
         width: 100%;
+        transition: .3s;
+
+        &.wd60 {
+          width: 60%;
+
+          .workPc {
+            grid-template-columns: repeat(2, minmax(0, 450px));
+          }
+        }
 
         .workPc {
           padding: 30px;
@@ -286,10 +295,6 @@ video {
           grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
           gap: 30px;
           justify-content: center;
-
-          &.wd60 {
-            grid-template-columns: repeat(2, minmax(0, 450px))
-          }
 
           li.item {
             opacity: 0;
@@ -305,6 +310,8 @@ video {
               display: block;
               opacity: 1;
               transition: .2s;
+              max-width: 500px;
+              margin: 0 auto;
 
               &.on {
                 transform: scale(1.05);
@@ -345,12 +352,13 @@ video {
           height: 100%;
         }
 
-        &.on {
+        &.wd40 {
           height: 100vh;
           padding: 80px 40px 0;
           position: sticky;
           top: 30vh;
           border-left: 2px solid #ddd;
+          width: 40%;
 
           .close {
             display: block;
@@ -746,7 +754,8 @@ video {
               transition: 0.2s;
               margin: 30px 0;
             }
-            span{
+
+            span {
               font-family: "GmarketSans-M";
               display: block;
               font-size: 18px;
@@ -754,12 +763,14 @@ video {
               line-height: 1.2
             }
           }
+
           .title {
             font-family: "GmarketSans-B";
           }
         }
       }
     }
+
     .worklist2 {
       display: none;
 
@@ -784,6 +795,22 @@ video {
   .grid {
     width: 312vw;
     height: 128vh;
+  }
+
+  .content .workWrap .work .worklist .workMob {
+    display: block;
+
+    .mobItem {
+      width: 80%;
+      &:not(:last-child){
+        padding-bottom: 30px;
+        border-bottom: 2px solid #ddd;
+        margin-bottom: 30px;
+        .title {
+          height: unset;
+        }
+      }
+    }
   }
 }
 
