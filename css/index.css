@@ -637,6 +637,7 @@ video {
   .abtBox .abt_txt .abt_me .inner {
     max-height: unset;
     overflow-y: unset;
+    height: auto;
   }
 }
 @media screen and (max-width: 500px) {
