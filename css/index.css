@@ -222,43 +222,48 @@ video {
 }
 .content .workWrap .work .worklist {
   width: 100%;
+}
+.content .workWrap .work .worklist .workPc {
   padding: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   justify-content: center;
 }
-.content .workWrap .work .worklist.wd60 {
+.content .workWrap .work .worklist .workPc.wd60 {
   grid-template-columns: repeat(2, minmax(0, 450px));
 }
-.content .workWrap .work .worklist li.item {
+.content .workWrap .work .worklist .workPc li.item {
   opacity: 0;
   transform: translateY(30px);
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
-.content .workWrap .work .worklist li.item.show {
+.content .workWrap .work .worklist .workPc li.item.show {
   opacity: 1;
   transform: translateY(0px);
 }
-.content .workWrap .work .worklist li.item a {
+.content .workWrap .work .worklist .workPc li.item a {
   display: block;
   opacity: 1;
   transition: 0.2s;
 }
-.content .workWrap .work .worklist li.item a.on {
+.content .workWrap .work .worklist .workPc li.item a.on {
   transform: scale(1.05);
 }
-.content .workWrap .work .worklist li.item a.on img {
+.content .workWrap .work .worklist .workPc li.item a.on img {
   transform: unset;
 }
-.content .workWrap .work .worklist li.item a img {
+.content .workWrap .work .worklist .workPc li.item a img {
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
   transition: 0.2s;
 }
-.content .workWrap .work .worklist li.item:hover img {
+.content .workWrap .work .worklist .workPc li.item:hover img {
   transform: scale(1.05);
+}
+.content .workWrap .work .worklist .workMob {
+  display: none;
 }
 .content .workWrap .work .worklist2 {
   width: 0;
@@ -519,14 +524,14 @@ video {
   justify-content: center;
   gap: 20px;
   font-family: "pretendard-M";
+  opacity: 0;
 }
 .contactWrap .txtBox p {
   font-size: 3rem;
 }
 .contactWrap .content__header.on ~ .txtBox {
   transform: translateY(-60px);
-  opacity: 0;
-  animation: fadeDown 0.6s 1s linear forwards;
+  animation: fadeDown 0.6s 0.5s linear forwards;
 }
 
 @media screen and (max-width: 1420px) {
@@ -542,6 +547,52 @@ video {
   .grid {
     width: 240vw;
     height: 123vh;
+  }
+  .content .workWrap .work .worklist {
+    padding: 20px;
+  }
+  .content .workWrap .work .worklist .workPc {
+    display: none;
+  }
+  .content .workWrap .work .worklist .workMob {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 20px;
+  }
+  .content .workWrap .work .worklist .workMob .mobItem {
+    margin: 0 auto;
+    width: 48%;
+  }
+  .content .workWrap .work .worklist .workMob .mobItem .title {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    font-size: 23px;
+    margin: 0 20px;
+  }
+  .content .workWrap .work .worklist .workMob .mobItem > a {
+    display: block;
+    width: 100%;
+  }
+  .content .workWrap .work .worklist .workMob .mobItem > a img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+    margin: 30px 0;
+  }
+  .content .workWrap .work .worklist .workMob .mobItem > a span {
+    font-family: "GmarketSans-M";
+    display: block;
+    font-size: 18px;
+    margin: 0 20px;
+    line-height: 1.2;
+  }
+  .content .workWrap .work .worklist .workMob .mobItem .title {
+    font-family: "GmarketSans-B";
+  }
+  .content .workWrap .work .worklist2 {
+    display: none;
   }
   .abtBox {
     flex-direction: column;
