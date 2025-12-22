@@ -560,5 +560,7 @@ $(window).scroll(function () {
 });
 
 // about me scroll
-document.querySelector('.inner')
-  .addEventListener('wheel', e => e.stopPropagation(), { passive: false });
+if (window.innerWidth > 1080) {
+  document.querySelector('.inner')
+    .addEventListener('wheel', e => e.stopPropagation());
+}

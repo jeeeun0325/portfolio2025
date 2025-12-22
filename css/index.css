@@ -449,6 +449,7 @@ video {
 .abtBox .abt_txt .abt_me .inner {
   max-height: calc(100vh - 300px);
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .abtBox .abt_txt .abt_me .inner::-webkit-scrollbar {
   width: 7px;
@@ -629,6 +630,13 @@ video {
   }
   .content .workWrap .work .worklist .workMob .mobItem:not(:last-child) .title {
     height: unset;
+  }
+  .abtBox .abt_txt .abt_me {
+    width: 90%;
+  }
+  .abtBox .abt_txt .abt_me .inner {
+    max-height: unset;
+    overflow-y: unset;
   }
 }
 @media screen and (max-width: 500px) {

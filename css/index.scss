@@ -577,6 +577,7 @@ video {
       .inner {
         max-height: calc(100vh - 300px);
         overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
 
         &::-webkit-scrollbar {
           width: 7px;
@@ -811,7 +812,14 @@ video {
         }
       }
     }
+    
   }
+  .abtBox .abt_txt .abt_me {
+    width: 90%;
+    .inner {
+      max-height: unset;
+      overflow-y: unset;
+    }}
 }
 
 @media screen and (max-width:500px) {
