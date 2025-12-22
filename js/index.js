@@ -551,10 +551,8 @@ $(window).scroll(function () {
     let secTop = $(this).offset().top;
     let header = $(this).find(".content__header");
 
-    if (scrTop >= secTop - winH / 2) {
+    if (scrTop >= secTop - winH / 1.3) {
       header.addClass("on");
-    } else {
-      header.removeClass("on");
     }
   });
 });
