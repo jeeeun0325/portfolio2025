@@ -408,19 +408,36 @@ body:not(.noscroll) .intro {
   /* GSAP 애니메이션 충돌 방지를 위해 JS에서 opacity와 transform을 제어하도록 CSS 초기 상태는 제거하거나 간소화합니다. */
 }
 .content .workWrap .work .close {
-  width: 37.6923076923px;
-  height: 36.9230769231px;
-  background: no-repeat center/contain;
-  background-image: url(../img/close.png);
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   position: absolute;
   top: 0px;
   right: 15px;
   display: none;
   border: none;
+  background: none;
+}
+.content .workWrap .work .close [class*=bar] {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.content .workWrap .work .close .bar1 {
+  transform: rotate(45deg);
+}
+.content .workWrap .work .close .bar2 {
+  transform: rotate(-45deg);
 }
 .content .workWrap .work .close:hover {
   background-image: url(../img/close_black.png);
+}
+.content .workWrap .work .close:hover [class*=bar] {
+  background: #000;
 }
 
 .content .projectWrap .content__header.on ~ .project {
