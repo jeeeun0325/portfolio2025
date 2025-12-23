@@ -206,9 +206,9 @@ video {
 
 .fullview .txtBox {
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   text-align: center;
   width: 70%;
 
@@ -317,11 +317,12 @@ header.hd_bg {
   }
 }
 
-body:not(.noscroll){
+body:not(.noscroll) {
   .intro {
     height: 82vh;
   }
 }
+
 .content {
   .section {
     margin-bottom: 180px;
@@ -413,10 +414,10 @@ body:not(.noscroll){
         }
 
         &.wd40 {
-          height: 100vh;
-          padding: 80px 40px 0;
+          height: calc(100vh - 104px);
+          padding: 10px 40px 0;
           position: sticky;
-          top: 30vh;
+          top: 104px;
           border-left: 2px solid #ddd;
           width: 40%;
 
@@ -428,6 +429,11 @@ body:not(.noscroll){
         .workView {
           max-width: 500px;
           margin: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          height: 100%;
 
           img {
             width: 100%;
@@ -447,6 +453,7 @@ body:not(.noscroll){
             &.title {
               font-family: 'GmarketSans-B';
               font-size: 25px;
+              
             }
           }
 
@@ -461,14 +468,19 @@ body:not(.noscroll){
           }
 
           &.mini {
-            max-width: 370px;
 
             .viewBox {
               padding-bottom: 20px;
+              width: 100%;
 
               &:nth-of-type(1) {
                 border-bottom: 1px solid #eee;
                 margin-bottom: 20px;
+              }
+              img{
+                display: block;
+                max-width: 400px;
+                margin: 30px auto;
               }
             }
 
@@ -477,6 +489,7 @@ body:not(.noscroll){
 
               &.title {
                 font-size: 23px;
+                white-space: nowrap;
               }
             }
           }
@@ -503,8 +516,8 @@ body:not(.noscroll){
         background-image: url(../img/close.png);
         cursor: pointer;
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 0px;
+        right: 15px;
         display: none;
         border: none;
 
@@ -738,7 +751,7 @@ body:not(.noscroll){
 }
 
 .contactWrap {
-  
+
   .txtBox {
     text-align: center;
     height: 200px;
@@ -766,12 +779,26 @@ body:not(.noscroll){
     h2 {
       text-align: center;
       margin-bottom: 0;
+      padding-top: 150px;
     }
   }
 }
 
 .noEvent {
   pointer-events: none;
+}
+
+/* footer */
+.content__footer {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b3b1b1ad;
+
+  p {
+    font-size: 18px;
+  }
 }
 
 //pc
@@ -855,7 +882,8 @@ body:not(.noscroll){
 
     }
   }
-.content .aboutWrap .abtBox {
+
+  .content .aboutWrap .abtBox {
     flex-direction: column;
 
     .abtimg_wrap {
@@ -894,7 +922,7 @@ body:not(.noscroll){
 
   }
 
-  .content .aboutWrap  .abtBox .abt_txt .abt_me {
+  .content .aboutWrap .abtBox .abt_txt .abt_me {
     width: 90%;
 
     .inner {
@@ -907,6 +935,7 @@ body:not(.noscroll){
   .content .projectWrap .project {
     margin: 20px;
   }
+
   .content .section {
     margin-bottom: 140px;
   }

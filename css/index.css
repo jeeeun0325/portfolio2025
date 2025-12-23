@@ -162,9 +162,9 @@ video {
 
 .fullview .txtBox {
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   text-align: center;
   width: 70%;
 }
@@ -337,10 +337,10 @@ body:not(.noscroll) .intro {
   height: 100%;
 }
 .content .workWrap .work .worklist2.wd40 {
-  height: 100vh;
-  padding: 80px 40px 0;
+  height: calc(100vh - 104px);
+  padding: 10px 40px 0;
   position: sticky;
-  top: 30vh;
+  top: 104px;
   border-left: 2px solid #ddd;
   width: 40%;
 }
@@ -350,6 +350,11 @@ body:not(.noscroll) .intro {
 .content .workWrap .work .worklist2 .workView {
   max-width: 500px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
 }
 .content .workWrap .work .worklist2 .workView img {
   width: 100%;
@@ -375,21 +380,25 @@ body:not(.noscroll) .intro {
 .content .workWrap .work .worklist2 .workView a:hover img {
   transform: scale(1.05);
 }
-.content .workWrap .work .worklist2 .workView.mini {
-  max-width: 370px;
-}
 .content .workWrap .work .worklist2 .workView.mini .viewBox {
   padding-bottom: 20px;
+  width: 100%;
 }
 .content .workWrap .work .worklist2 .workView.mini .viewBox:nth-of-type(1) {
   border-bottom: 1px solid #eee;
   margin-bottom: 20px;
+}
+.content .workWrap .work .worklist2 .workView.mini .viewBox img {
+  display: block;
+  max-width: 400px;
+  margin: 30px auto;
 }
 .content .workWrap .work .worklist2 .workView.mini span {
   font-size: 18px;
 }
 .content .workWrap .work .worklist2 .workView.mini span.title {
   font-size: 23px;
+  white-space: nowrap;
 }
 .content .workWrap .work .workView span.title,
 .content .workWrap .work .workView a,
@@ -405,8 +414,8 @@ body:not(.noscroll) .intro {
   background-image: url(../img/close.png);
   cursor: pointer;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 0px;
+  right: 15px;
   display: none;
   border: none;
 }
@@ -610,10 +619,23 @@ body:not(.noscroll) .intro {
 .contactWrap .content__header h2 {
   text-align: center;
   margin-bottom: 0;
+  padding-top: 150px;
 }
 
 .noEvent {
   pointer-events: none;
+}
+
+/* footer */
+.content__footer {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(179, 177, 177, 0.6784313725);
+}
+.content__footer p {
+  font-size: 18px;
 }
 
 @media screen and (max-width: 1420px) {
