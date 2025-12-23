@@ -94,26 +94,6 @@ a:focus-visible {
 	outline: none;
 }
 
-.frame {
-	font-size: 12px;
-	color: #e3b774;
-	padding: var(--page-padding);
-	display: grid;
-	z-index: 1000;
-	grid-row-gap: 1rem;
-	grid-column-gap: 2rem;
-	pointer-events: none;
-	justify-items: start;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	grid-template-columns: 1fr;
-	grid-template-rows: auto auto;
-	grid-template-areas: 'title' 'sponsor';
-	transition: opacity 0.3s;
-}
-
 .hidden {
 	opacity: 0;
 	pointer-events: none;
@@ -125,9 +105,14 @@ a:focus-visible {
 	text-align: right;
 }
 
+.frame > ul li{
+	margin-bottom: 5px;
+}
 .frame a {
   pointer-events: auto;
   color: #fff;
+	font-size: 18px;
+	font-family: 'pretendard-R';
 }
 
 .frame a:focus,
@@ -305,7 +290,7 @@ a:focus-visible {
 	font-size: clamp(5rem, 8vw, 14rem);
 	font-family: new-science-extended, sans-serif;
 	font-weight: 400;
-	margin: 6rem 0 10vh;
+	margin: 70px 0 90px;
 	line-height: 0.9;
 }
 

@@ -322,6 +322,13 @@ window.addEventListener('touchmove', (ev) => {
   updateMousePosition(touch);
 });
 
+//header
+$('header li a').on('click', function () {
+  
+  $('header li').removeClass('active')
+  $(this).parent('li').addClass('active')
+})
+
 // work
 let resizeTimer;
 window.addEventListener('resize', () => {
@@ -435,7 +442,12 @@ $('.close').click(function (e) {
 // ---------------------------------------------
 // item
 // ---------------------------------------------
-const items = document.querySelectorAll(".item");
+
+// 한줄씩 뜨는 애니메이션
+// PC
+const pcItems = document.querySelectorAll(".workPc .item");
+// 모바일
+const mobItems = document.querySelectorAll(".workMob .mobItem");
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -445,44 +457,44 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, {
-  threshold: 0.2,
-  rootMargin: "0px 0px 0px 0px"
+  threshold: 0.2
 });
 
-items.forEach((item, index) => {
-  item.style.transitionDelay = `${index * 0.05}s`;
+/* ======================
+   PC (줄 단위)
+====================== */
+let pcLastTop = -1;
+let pcDelay = 0.4;
+
+pcItems.forEach(item => {
   observer.observe(item);
+
+  const top = item.offsetTop;
+  if (top !== pcLastTop) {
+    pcDelay += 0.12;
+    pcLastTop = top;
+  }
+
+  item.style.transitionDelay = `${pcDelay}s`;
 });
 
+/* ======================
+   Mobile (줄 단위)
+====================== */
+const MOB_BASE_DELAY = 0.25;   // 처음 등장
+const MOB_STEP = 0.06;         // 간격
+const MOB_MAX_DELAY = 0.6;     // 상한
 
-// 한줄씩 뜨는 애니메이션
-// const items = document.querySelectorAll(".item");
+mobItems.forEach((item, index) => {
+  observer.observe(item);
 
-// const observer = new IntersectionObserver(entries => {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add("show");
-//     }
-//   });
-// }, {
-//   threshold: 0.2,
-//   rootMargin: "0px 0px 0px 0px"
-// });
+  const delay = Math.min(
+    MOB_BASE_DELAY + index * MOB_STEP,
+    MOB_MAX_DELAY
+  );
 
-// let lastTop = -1;
-// let rowDelay = 0;
-
-// items.forEach((item) => {
-//   observer.observe(item);
-
-//   const top = item.offsetTop;
-//   if (top !== lastTop) {
-//     rowDelay += 0.12;
-//     lastTop = top;
-//   }
-
-//   item.style.transitionDelay = `${rowDelay}s`;
-// });
+  item.style.transitionDelay = `${delay}s`;
+});
 
 function checkWidth() {
   let winW = $(window).outerWidth()
@@ -555,6 +567,11 @@ $(window).scroll(function () {
       header.addClass("on");
     }
   });
+  if (scrTop < 100) {
+      $('header').removeClass('hd_bg')
+    } else {
+      $('header').addClass('hd_bg')
+    }
 });
 
 // about me scroll
