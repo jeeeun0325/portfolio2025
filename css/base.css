@@ -4,7 +4,7 @@
 *::after,
 *::before {box-sizing: border-box;}
 
-:root {font-size: 12px; --color-text: #292828; --color-bg: #ddd; --color-link: #000; --color-link-hover: #000; --page-padding: 1rem; --angle: -15deg; --trans-content: -30vh;}
+:root {font-size: 12px; --color-text: #292828; --color-bg: #ddd; --color-link: #000; --color-link-hover: #000; --page-padding: 1rem; --angle: -15deg; /* --trans-content: -30vh; */}
 
 body {
 	margin: 0;
@@ -112,7 +112,7 @@ a:focus-visible {
   pointer-events: auto;
   color: #fff;
 	font-size: 18px;
-	font-family: 'pretendard-R';
+	font-family: 'pretendard-M';
 }
 
 .frame a:focus,
@@ -266,7 +266,7 @@ a:focus-visible {
 	content: '';
 	position: absolute;
 	border-radius: 10px 10px 0 0;
-	height: calc(100% + (-1) * var(--trans-content));
+	height: 100%;
 	width: 100%;
 	top: 0;
 	left: 0;
@@ -290,7 +290,7 @@ a:focus-visible {
 	font-size: clamp(5rem, 8vw, 14rem);
 	font-family: new-science-extended, sans-serif;
 	font-weight: 400;
-	margin: 70px 0 90px;
+	margin: 0 0 90px;
 	line-height: 0.9;
 }
 

@@ -322,14 +322,45 @@ window.addEventListener('touchmove', (ev) => {
   updateMousePosition(touch);
 });
 
-//header
-$('header li a').on('click', function () {
-  
-  $('header li').removeClass('active')
-  $(this).parent('li').addClass('active')
-})
+/*************** header ***************/
+$('header li a[href^="#"]').on('click', function (e) {
+  e.preventDefault();
 
-// work
+  $('header li').removeClass('active');
+  $(this).parent('li').addClass('active');
+
+  const targetId = $(this).attr('href');
+  const $target = $(targetId);
+
+  if (!$target.length) return;
+
+  const headerH = $('header').outerHeight() || 0;
+  const offsetTop = $target.offset().top - headerH;
+
+  $('html, body').animate({
+    scrollTop: offsetTop
+  }, 700);
+});
+
+
+// scroll  active 
+const sections = $('.section');
+
+$(window).on('scroll', function () {
+  const scrollPos = $(window).scrollTop() + 150;
+
+  sections.each(function () {
+    const top = $(this).offset().top;
+    const id = $(this).attr('id');
+
+    if (scrollPos >= top) {
+      $('header li').removeClass('active');
+      $('header a[href="#' + id + '"]').parent().addClass('active');
+    }
+  });
+});
+
+/*************** work ***************/
 let resizeTimer;
 window.addEventListener('resize', () => {
   document.body.classList.add('resizing');
@@ -443,7 +474,7 @@ $('.close').click(function (e) {
 // item
 // ---------------------------------------------
 
-// 한줄씩 뜨는 애니메이션
+// 애니메이션
 // PC
 const pcItems = document.querySelectorAll(".workPc .item");
 // 모바일
@@ -461,7 +492,7 @@ const observer = new IntersectionObserver(entries => {
 });
 
 /* ======================
-   PC (줄 단위)
+   PC 
 ====================== */
 let pcLastTop = -1;
 let pcDelay = 0.4;
@@ -479,7 +510,7 @@ pcItems.forEach(item => {
 });
 
 /* ======================
-   Mobile (줄 단위)
+   Mobile 
 ====================== */
 const MOB_BASE_DELAY = 0.25;   // 처음 등장
 const MOB_STEP = 0.06;         // 간격
@@ -510,7 +541,7 @@ $(window).on('resize load', function () {
 })
 
 
-//project
+/*************** project ***************/
 $(document).ready(function () {
   const $thum = $('.thum');
 
@@ -554,7 +585,7 @@ $(document).ready(function () {
   });
 });
 
-//섹션 h2  
+/*************** section h2 ***************/ 
 $(window).scroll(function () {
   let scrTop = $(window).scrollTop();
   let winH = $(window).height();
@@ -574,7 +605,8 @@ $(window).scroll(function () {
     }
 });
 
-// about me scroll
+/*************** about me ***************/
+//scroll
 const inner = document.querySelector('.inner');
 
 if (window.innerWidth > 720) {
