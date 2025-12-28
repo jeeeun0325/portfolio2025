@@ -497,16 +497,10 @@ body:not(.noscroll) {
         }
       }
 
-      /*
-** 1. 애니메이션 초기 상태 설정 (JS가 제어할 요소) **
-   - workView 안에 있는 span.title, a, viewBox는 기본적으로 숨겨진 상태에서 시작
-*/
       .workView span.title,
       .workView a,
       .workView .viewBox {
-        /* 초기 상태는 JS의 fromTo로 설정하므로, 여기서 transition을 막아 충돌 방지 */
         transition: none !important;
-        /* GSAP 애니메이션 충돌 방지를 위해 JS에서 opacity와 transform을 제어하도록 CSS 초기 상태는 제거하거나 간소화합니다. */
       }
 
 
@@ -537,11 +531,12 @@ body:not(.noscroll) {
         .bar1 {
           transform: rotate(45deg);
         }
+
         .bar2 {
           transform: rotate(-45deg);
         }
+
         &:hover {
-          background-image: url(../img/close_black.png);
           [class*="bar"] {
             background: #000;
           }
